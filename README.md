@@ -1,6 +1,8 @@
 # SVELTE KIT EXAMPLE ON 08.03.2022.
 with newer changes from different package :))
 
+followed instructions on https://tailwindcss.com/docs/guides/sveltekit and on https://github.com/sveltejs/kit/tree/master/packages/adapter-node .
+
 
 
 # create-svelte
