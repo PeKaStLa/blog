@@ -1,5 +1,5 @@
 {
-  "name": "opinion",
+  "name": "sveltekit_default_2",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
