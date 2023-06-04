@@ -48,7 +48,7 @@ mx-auto px-2
      <Card headline="(AWS) Creating a CI" 
      text="To create a CI we first have to know which steps need to be executed for updating the production-server with the newest code from the development-server.
      For that we first do all steps manually. We assume that the dev made some last changes on the dev-server. After that the dev executes 'git add .', then 'git commit -m 'message'', then 'git push'.
-     
+     Now on the production-server the dev executes 'git pull'. After this the dev needs to deploy the svelte-App on the production-server to get the latest build-files.
      " />
      <Card headline="(AWS) Writing an automation for redeployment of a broken down WebApp" text="test text" />
      <Card headline="Different linux-distributions" 
