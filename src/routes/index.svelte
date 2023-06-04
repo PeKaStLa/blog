@@ -41,12 +41,20 @@ mx-auto px-2
 
 
 
- RHEL/CentOS
      <Card headline="test headline" text="test text" />
+     <Card headline="Basic Git-commands" text="'git remote' shows the origin. 'git branch' shows the current branch. 'git status' shows if the current repository is up-to-date with the origin-repo. 'git remote show origin' shows the remote-URL." />
+     <Card headline="Writing a .sh-script and running it via crontab" 
+     text="First we create the script-file via touch-command. After we need to make it executable. Then we add #!/bin/bash in the first line." />
+     <Card headline="(AWS) Creating a CI" 
+     text="To create a CI we first have to know which steps need to be executed for updating the production-server with the newest code from the development-server.
+     For that we first do all steps manually. We assume that the dev made some last changes on the dev-server. After that the dev executes 'git add .', then 'git commit -m 'message'', then 'git push'.
+     
+     " />
+     <Card headline="(AWS) Writing an automation for redeployment of a broken down WebApp" text="test text" />
      <Card headline="Different linux-distributions" 
      text="When working with different Linux-distros you will notice that there are many differences like for example the package-manager. 
      In  RHEL-based linux-distros like CentOS and Fedora and also Amazon Linux you can use the 'yum'-package-manager.
-      WWWWWWWWWWWWW
+      
      openSUSE/SuSE
 Ubuntu is partly based on 'Debian', uses the Advanced Package Tool (APT)-software-manager.
      In Debian-bases distros the package manager ... is used.
@@ -80,9 +88,13 @@ Ubuntu is partly based on 'Debian', uses the Advanced Package Tool (APT)-softwar
       items="
 
 <div class='content-center'>
-<ol class='list-decimal inline-block '>
+<ol class='list-decimal inline-block'>
 
-<br>
+<br><br>
+
+<p class='underline'>
+
+general:</p>
 <br>
 
   <li>backpack</li>
@@ -112,7 +124,7 @@ wallet:</p>
     <li>student ID card</li>
   <li>vaccination certificate book</li>
   <li>health-insurance-documents</li>
-   <li>4x passport photographs for visa-applications</li>
+   <li class=''>4x passport photographs for visa-applications</li>
    <li>ca. 200€ cash</li>
    <li>name tag with important information</li>
 

@@ -19,7 +19,7 @@
 xl:w-80/100 lg:w-90/100  
 md:w-90/100 w-95/100  
 
-mx-auto   my-10 p-4
+mx-auto   my-10 p-6 
  overflow-hidden 
  overflow-ellipsis 
   break-words
