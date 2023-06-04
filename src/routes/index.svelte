@@ -11,7 +11,7 @@
             rounded-md text-black  border-white
  "
 		>
-			 Peters' Blog
+			 Peters' Blog - 04.06.2023 - 18:21
 		</h1>
 
 
@@ -42,15 +42,64 @@ mx-auto px-2
 
 
      <Card headline="test headline" text="test text" />
-     <Card headline="Basic Git-commands" text="'git remote' shows the origin. 'git branch' shows the current branch. 'git status' shows if the current repository is up-to-date with the origin-repo. 'git remote show origin' shows the remote-URL." />
+
+
+     <Card headline="Basic Git-commands" text="'git remote' shows the 
+     origin. 'git branch' shows the current branch. 'git status' shows 
+     if the current repository is up-to-date with the origin-repo. 
+     'git remote show origin' shows the remote-URL." />
+
+
      <Card headline="Writing a .sh-script and running it via crontab" 
-     text="First we create the script-file via touch-command. After we need to make it executable. Then we add #!/bin/bash in the first line." />
+     text="First we create the script-file via touch-command: 'touch cron_blog.sh'. 
+     We can check the permissions with 'ls -al cron_blog.sh' and see that 
+     there are indeed no execute-permissions.
+     After we need to make it executable via 'sudo chmod +x cron_blog.sh'.
+     Now we have execute-permissions for every user-group.
+      Then we add #!/bin/bash in the first line via vim.
+      Now we add the content.
+      After that we will add the .sh-file to crontab and get it automatically
+      executed every hour.
+      
+      
+      " />
+
+
      <Card headline="(AWS) Creating a CI" 
-     text="To create a CI we first have to know which steps need to be executed for updating the production-server with the newest code from the development-server.
-     For that we first do all steps manually. We assume that the dev made some last changes on the dev-server. After that the dev executes 'git add .', then 'git commit -m 'message'', then 'git push'.
-     Now on the production-server the dev executes 'git pull'. After this the dev needs to deploy the svelte-App on the production-server to get the latest build-files.
-     " />
-     <Card headline="(AWS) Writing an automation for redeployment of a broken down WebApp" text="test text" />
+     text="To create a CI we first have to know which steps need to 
+     be executed for updating the production-server with the newest 
+     code from the development-server.
+     For that we first do all steps manually. We assume that the dev 
+     made some last changes on the dev-server. After that the dev 
+     executes 'git add .', then 'git commit -m 'message'', then 
+     'git push'.
+     .....
+     Now on the production-server the dev executes 'git pull'. 
+     After this the dev needs to deploy the svelte-App via 'npm run build'
+      on the production-server to get the latest build-files. 
+      Before we can deploy these latest build-files we need to kill 
+      the process on the specific port 3005 with the command 
+      'fuser -k 3005/tcp'.
+      After killing the port-blocking-process we can deploy the 
+      new build files.
+      These build files need to get executed with node in the 
+      background and to a specific port via 'PORT=3005 node index.js &'.
+      Now the production-server is up-to-date with the dev server and 
+     the latest content is running in the WebApp on the actual domain.
+      ...
+      All of that worked quite well and successfully.
+      So all we need to do is writing all these commands 
+      (on the production-server) into an executable 
+      '.sh-file' and letting it get executed ca. hourly via crontab:
+      1. git pull
+      2. npm run build
+      3. fuser -k 3005/tcp
+      4. PORT=3005 node index.js &
+      ....
+      ....
+      ....
+          " />
+     <Card headline="(AWS) Writing an automation for redeployment of a broken-down WebApp" text="test text" />
      <Card headline="Different linux-distributions" 
      text="When working with different Linux-distros you will notice that there are many differences like for example the package-manager. 
      In  RHEL-based linux-distros like CentOS and Fedora and also Amazon Linux you can use the 'yum'-package-manager.
@@ -59,8 +108,17 @@ mx-auto px-2
 Ubuntu is partly based on 'Debian', uses the Advanced Package Tool (APT)-software-manager.
      In Debian-bases distros the package manager ... is used.
  " />
-     <Card headline="Finding out which process uses a specific port - and killing it" 
-     text="Everybody knows it: starting a dev-server and it fails with the message 'Port already in use'. What to do " />
+     <Card headline="Finding out which process uses a specific port 
+     - and killing it" 
+     text="Everybody knows it: starting a dev-server and it fails with 
+     the message 'Port already in use'. What to do:
+Via the command 'fuser 3005/tcp' we get the process-ID of the process 
+which is running on and blocking the Port 3005.
+With the command 'fuser -k 3005/tcp' we are killing this process. 
+Even in case we did not check for the process-ID before.
+
+     
+     "     />
 
      <Card
 		headline="(AWS) Hosting multiple Web-Apps in one EC2-Instance with Nginx"
@@ -141,9 +199,11 @@ clothing:</p>
 
   <li>2x normal t-shirt</li>
   <li>1x long hoodie</li>
-  <li>1x belt</li>
-  <li>1x long trousers</li>
+  <li>1x long wide bright dense cotton/linen trousers for sun and mosquitos</li>
+  <li>1x long wide bright dense cotton/linen shirt for sun and mosquitos</li>
   <li>1x short trousers</li>
+  <li>1x belt</li>
+
 
    <li>1x thin beanie</li>
   <li>1x scarf/bandana</li>
@@ -243,7 +303,9 @@ electronics:</p>
 
 <br><br>
 <p class='text-justify'>
- No worries, you can fit all this in a 20L-backpack. I tried it and did it before. A small backpack will make your whole backpacking-life much easier and make your trip more relaxed.
+ No worries, you can fit all this in a 20L-backpack. I tried it and did it before. 
+ A small backpack will make your whole backpacking-life much easier and make your 
+ trip more relaxed and enjoyable.
    </p>
       "
 	/>
