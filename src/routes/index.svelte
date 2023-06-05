@@ -12,7 +12,7 @@
  "
 		>
 			 Peters' Blog - 
-             05.06.2023 - 17:04
+             05.06.2023 - 18:37
 		</h1>
 
 
@@ -43,6 +43,10 @@ mx-auto px-2
 
 
      <Card headline="test headline" text="test text" />
+     
+     
+     <Card headline="send mails via AWS SNS" 
+     text="blablub" />
 
 
      <Card headline="Run a node-server in a script via background-tmux-server" 
@@ -172,7 +176,7 @@ Even in case we did not check for the process-ID before.
         "
       items="
 
-<div class='content-center'>
+<div class='content-center px-6'>
 <ol class='list-decimal inline-block'>
 
 <br><br>
