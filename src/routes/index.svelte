@@ -11,7 +11,7 @@
             rounded-md text-black  border-white
  "
 		>
-			 Peters' Blog - 04.06.2023 - 18:21
+			 Peters' Blog - 05.06.2023 - 11:39
 		</h1>
 
 
@@ -43,6 +43,10 @@ mx-auto px-2
 
      <Card headline="test headline" text="test text" />
 
+     <Card headline="Deploy/Update a Node-App with Nginx without any downtime" 
+     text="I will try to deploy a Node-App without any downtime by changing 
+     the Port of the application in the nginx.config-file." />
+
 
      <Card headline="Basic Git-commands" text="'git remote' shows the 
      origin. 'git branch' shows the current branch. 'git status' shows 
@@ -65,14 +69,15 @@ mx-auto px-2
       " />
 
 
-     <Card headline="(AWS) Creating a CI" 
+     <Card headline="(AWS) Creating CD for an App" 
      text="To create a CI we first have to know which steps need to 
      be executed for updating the production-server with the newest 
      code from the development-server.
      For that we first do all steps manually. We assume that the dev 
      made some last changes on the dev-server. After that the dev 
-     executes 'git add .', then 'git commit -m 'message'', then 
-     'git push'.
+     executes 'npm run build' to finally check if the code is valid 
+     and able to run. Then the dev continues with 'git add .', then 
+     'git commit -m 'message'', then 'git push'.
      .....
      Now on the production-server the dev executes 'git pull'. 
      After this the dev needs to deploy the svelte-App via 'npm run build'
@@ -125,6 +130,10 @@ Even in case we did not check for the process-ID before.
 	text="When you buy a domain, set up an EC2-Server and deploy a Web-App on Port 80 - then that's it. The server is used and seems full.
     But what if you want to host more than one Application? Do you need to pay for a second EC2-machine? One server and one domain for every project?
     With a webserver-software like 'nginx' it's possible to host multiple apps on different sub-domains on one single server. 
+    ...
+    Also I want to seperate the different nginx.config-snippets into 
+    seperate files so that I can edit them easier for CD without any 
+    downtime.
     "
     />
 	<Image src="pangolin_2.png" alt="pangolin_2" />
@@ -163,7 +172,7 @@ general:</p>
   <li>1x sandals/flip-flops</li>
      <li>1x hiking/normal shoes</li>
      <li>1x towel</li>
-     <li>2x tiny bags for tiny things</li>
+     <li>2x smaller bags for tiny things</li>
      
 
 <br><br>
@@ -199,8 +208,8 @@ clothing:</p>
 
   <li>2x normal t-shirt</li>
   <li>1x long hoodie</li>
-  <li>1x long wide bright dense cotton/linen trousers for sun and mosquitos</li>
-  <li>1x long wide bright dense cotton/linen shirt for sun and mosquitos</li>
+  <li>1x wide bright dense cotton/linen long trousers for sun and mosquitos</li>
+  <li>1x wide bright dense cotton/linen long shirt for sun and mosquitos</li>
   <li>1x short trousers</li>
   <li>1x belt</li>
 
