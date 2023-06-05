@@ -11,7 +11,8 @@
             rounded-md text-black  border-white
  "
 		>
-			 Peters' Blog - 05.06.2023 - 11:39
+			 Peters' Blog - 
+             05.06.2023 - 16:27
 		</h1>
 
 
@@ -42,6 +43,23 @@ mx-auto px-2
 
 
      <Card headline="test headline" text="test text" />
+
+
+     <Card headline="Run a node-server in a script via background-tmux-server" 
+     text="If you want to run a node-server in a script there are many ways to 
+     fail. Also when you use the node-command with '&' to run it without 
+     output, the command still requires a 'ENTER' to return to the bash-commandline.
+     So the way to do it is using tmux. First we create a new detached tmux session.
+     Then we send the node-command to the created tmux-session and confirm the 
+     command with adding 'ENTER' in the command.  
+     <br>
+     <br> 
+     1. command: 'tmux new-session -d -s blog'
+     <br>
+     2. command: 'tmux send -t blog ''PORT=3006 node ~/blog/build/index.js'' ENTER'
+     <br>
+     
+      " />
 
      <Card headline="Deploy/Update a Node-App with Nginx without any downtime" 
      text="I will try to deploy a Node-App without any downtime by changing 
@@ -286,7 +304,7 @@ accessories:</p>
   <li>1x sewing-kit</li>
   <li>1x metal spoon</li>
   <li>1x can opener</li>
-  <li>1x dirt/stain cleaning tissue</li>
+  <li>1x dirt/stain robust cleaning tissue/cloth</li>
   <br><br>
 <p class='underline'>
 electronics:</p>
