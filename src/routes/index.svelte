@@ -43,6 +43,38 @@ mx-auto px-2
 
 
      <Card headline="test headline" text="test text" />
+
+
+     <Card headline="test headline" text="test text" />
+
+   
+   
+     <Card headline="Installing software manually on Amazon Linux 2 when it is not available with the software package manager" 
+     
+     text="On Amazon Linux 2023 and Amazon Linux 2 there 
+     there are many softwares missing like mariaDB, 
+     postgresql, node, npm.
+     
+     
+     <br><br>
+  For node and npm for example, we need to first add
+  the node.js repository and install it after:
+  <br><br>
+  1. curl -fsSL https://rpm.nodesource.com/setup_16.x | sudo bash -
+ <br>
+  2. sudo yum install -y nodejs
+<br>
+<br><br>
+I also downloaded the sourcecode of postgresql 
+manually. First download the file with curl and 
+second unzip it with tar:
+<br><br>
+1. curl --output postgresql-15.3.tar.bz2 https://ftp. postgresql.org /pub/source/v15.3 /postgresql -15.3.tar.bz2
+<br>
+2. tar xf postgresql-15.3.tar.bz2
+<br><br>
+
+     " />
      
      
      <Card headline="send mails via AWS SNS" 
