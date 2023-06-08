@@ -31,10 +31,9 @@ mx-auto   my-10 p-6
         {headline}
     </p>
 <br>
-    <p class="text-md lg:text-lg  text-justify	">
+    <p class="text-md lg:text-lg   text-justify	">
         {@html text}
     </p>
-    {@html items}
 
     
 </div>

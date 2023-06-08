@@ -4,20 +4,18 @@
 </script>
 
 <div class=" text-center  ">
-<h1
-			class="text-3xl
+	<h1
+		class="text-3xl
             pb-1  font-thin
             text-center   
             rounded-md text-black  border-white
  "
-		>
-			 Peters' Blog - 
-             05.06.2023 - 22:21
-		</h1>
+	>
+		Peters' Blog - 09.06.2023 - 00:29
+	</h1>
 
-
-
-       <div class="
+	<div
+		class="
       2xl5:w-50/100  
 2xl3:w-50/100 2xl:w-60/100 
 xl:w-70/100 lg:w-80/100  
@@ -25,33 +23,29 @@ md:w-85/100
 sm:w-95/100
 
 mx-auto px-2
-            ">
-            
-        <img class=" 
+            "
+	>
+		<img
+			class=" 
         rounded-md 
     border-2
     border-gray-300
     shadow-lg
-        " 
-		src="ta_prohm_kleiner.jpg" alt="ta_prohm_kleiner" />
+        "
+			src="ta_prohm_kleiner.jpg"
+			alt="ta_prohm_kleiner"
+		/>
 
-        <h5 class="text-xs	">
-        Ta Prohm, Cambodia
-        </h5>
-        </div>
+		<h5 class="text-xs	">Ta Prohm, Cambodia</h5>
+	</div>
 
+	<Card headline="test headline" text="test text" />
 
+	<Card headline="test headline" text="test text" />
 
-     <Card headline="test headline" text="test text" />
-
-
-     <Card headline="test headline" text="test text" />
-
-   
-   
-     <Card headline="Installing software manually on Amazon Linux 2 when it is not available with the software package manager" 
-     
-     text="On Amazon Linux 2023 and Amazon Linux 2 there 
+	<Card
+		headline="Installing software manually when it is not available with the software package manager"
+		text="On Amazon Linux 2023 and Amazon Linux 2 there 
      there are many softwares missing like mariaDB, 
      postgresql, node, npm.
      
@@ -74,15 +68,14 @@ second unzip it with tar:
 2. tar xf postgresql-15.3.tar.bz2
 <br><br>
 
-     " />
-     
-     
-     <Card headline="send mails via AWS SNS" 
-     text="blablub" />
+     "
+	/>
 
+	<Card headline="send mails via AWS SNS" text="blablub" />
 
-     <Card headline="Run a node-server in a script via background-tmux-server" 
-     text="If you want to run a node-server in a script there are many ways to 
+	<Card
+		headline="Run a node-server in a script via background-tmux-server"
+		text="If you want to run a node-server in a script there are many ways to 
      fail. Also when you use the node-command with '&' to run it without 
      output, the command still requires a 'ENTER' to return to the bash-commandline.
      So the way to do it is using tmux. First we create a new detached tmux session.
@@ -95,21 +88,26 @@ second unzip it with tar:
      2. command: 'tmux send -t blog ''PORT=3006 node ~/blog/build/index.js'' ENTER'
      <br>
      
-      " />
+      "
+	/>
 
-     <Card headline="Deploy/Update a Node-App with Nginx without any downtime" 
-     text="I will try to deploy a Node-App without any downtime by changing 
-     the Port of the application in the nginx.config-file." />
+	<Card
+		headline="Deploy/Update a Node-App with Nginx without any downtime"
+		text="I will try to deploy a Node-App without any downtime by changing 
+     the Port of the application in the nginx.config-file."
+	/>
 
-
-     <Card headline="Basic Git-commands" text="'git remote' shows the 
+	<Card
+		headline="Basic Git-commands"
+		text="'git remote' shows the 
      origin. 'git branch' shows the current branch. 'git status' shows 
      if the current repository is up-to-date with the origin-repo. 
-     'git remote show origin' shows the remote-URL." />
+     'git remote show origin' shows the remote-URL."
+	/>
 
-
-     <Card headline="Writing a .sh-script and running it via crontab" 
-     text="First we create the script-file via touch-command: 'touch cron_blog.sh'. 
+	<Card
+		headline="Writing a .sh-script and running it via crontab"
+		text="First we create the script-file via touch-command: 'touch cron_blog.sh'. 
      We can check the permissions with 'ls -al cron_blog.sh' and see that 
      there are indeed no execute-permissions.
      After we need to make it executable via 'sudo chmod +x cron_blog.sh'.
@@ -120,11 +118,12 @@ second unzip it with tar:
       executed every hour.
       
       
-      " />
+      "
+	/>
 
-
-     <Card headline="(AWS) Creating CD for an App" 
-     text="To create a CI we first have to know which steps need to 
+	<Card
+		headline="(AWS) Creating CD for an App"
+		text="To create a CI we first have to know which steps need to 
      be executed for updating the production-server with the newest 
      code from the development-server.
      For that we first do all steps manually. We assume that the dev 
@@ -157,19 +156,26 @@ second unzip it with tar:
       ....
       ....
       ....
-          " />
-     <Card headline="(AWS) Writing an automation for redeployment of a broken-down WebApp" text="test text" />
-     <Card headline="Different linux-distributions" 
-     text="When working with different Linux-distros you will notice that there are many differences like for example the package-manager. 
+          "
+	/>
+	<Card
+		headline="(AWS) Writing an automation for redeployment of a broken-down WebApp"
+		text="test text"
+	/>
+	<Card
+		headline="Different linux-distributions"
+		text="When working with different Linux-distros you will notice that there are many differences like for example the package-manager. 
      In  RHEL-based linux-distros like CentOS and Fedora and also Amazon Linux you can use the 'yum'-package-manager.
       
      openSUSE/SuSE
 Ubuntu is partly based on 'Debian', uses the Advanced Package Tool (APT)-software-manager.
      In Debian-bases distros the package manager ... is used.
- " />
-     <Card headline="Finding out which process uses a specific port 
-     - and killing it" 
-     text="Everybody knows it: starting a dev-server and it fails with 
+ "
+	/>
+	<Card
+		headline="Finding out which process uses a specific port 
+     - and killing it"
+		text="Everybody knows it: starting a dev-server and it fails with 
      the message 'Port already in use'. What to do:
 Via the command 'fuser 3005/tcp' we get the process-ID of the process 
 which is running on and blocking the Port 3005.
@@ -177,11 +183,12 @@ With the command 'fuser -k 3005/tcp' we are killing this process.
 Even in case we did not check for the process-ID before.
 
      
-     "     />
+     "
+	/>
 
-     <Card
+	<Card
 		headline="(AWS) Hosting multiple Web-Apps in one EC2-Instance with Nginx"
-	text="When you buy a domain, set up an EC2-Server and deploy a Web-App on Port 80 - then that's it. The server is used and seems full.
+		text="When you buy a domain, set up an EC2-Server and deploy a Web-App on Port 80 - then that's it. The server is used and seems full.
     But what if you want to host more than one Application? Do you need to pay for a second EC2-machine? One server and one domain for every project?
     With a webserver-software like 'nginx' it's possible to host multiple apps on different sub-domains on one single server. 
     ...
@@ -189,34 +196,29 @@ Even in case we did not check for the process-ID before.
     seperate files so that I can edit them easier for CD without any 
     downtime.
     "
-    />
+	/>
 	<Image src="pangolin_2.png" alt="pangolin_2" />
-    
- <Card
+
+	<Card
 		headline="(AWS) Adding a new Hosted Zone after deleting the domains' original Hosted Zone "
-        text="When you buy a domain at AWS your first hosted zone gets generated automatically. Later I deleted this hosted zone to save some money on AWS-fees during a long travel. After coming home from the vacation I didn't remember much about the orignal hosted zone. I just created a new hosted zone and added the records for simple routing to the www-domain and the short domain-name. After starting the EC2-Server and installing nginx - there was nothing to see on my domain. So I tried reaching my public-IP. Luckily there I could see the 'Welcome to nginx!'-Page. So where is the error in this? After some searching I found out that the nameservers of the new hosted zone are different to the ones of the domain. I copied all of the four nameservers from the hosted zone and pasted them into the records of the domain. Instead of the notified 24 hours it just took 2 or 3 minutes to apply the changes. Now everything worked as it should. The domain and the public-IP showed the same page."
-	items="
+		text="When you buy a domain at AWS your first hosted zone gets generated automatically. Later I deleted this hosted zone to save some money on AWS-fees during a long travel. After coming home from the vacation I didn't remember much about the orignal hosted zone. I just created a new hosted zone and added the records for simple routing to the www-domain and the short domain-name. After starting the EC2-Server and installing nginx - there was nothing to see on my domain. So I tried reaching my public-IP. Luckily there I could see the 'Welcome to nginx!'-Page. So where is the error in this? After some searching I found out that the nameservers of the new hosted zone are different to the ones of the domain. I copied all of the four nameservers from the hosted zone and pasted them into the records of the domain. Instead of the notified 24 hours it just took 2 or 3 minutes to apply the changes. Now everything worked as it should. The domain and the public-IP showed the same page."
+		items="
       
       "
-    />
+	/>
 	<Image src="pangolin.png" alt="pangolin" />
- <Card
+	<Card
 		headline="How to travel with a 20-liter backpack (for 7 months or more)"
-      
-        text="First things first. Most important during the whole trip is the backpack itself. I used the cheap but robust 'Arpenaz NH100 20 L' from Decathlon. Unlike many other cheap bagpacks it still looks good after 5 months.
+		text="First things first. Most important during the whole trip is the backpack itself. I used the cheap but robust 'Arpenaz NH100 20 L' from Decathlon. Unlike many other cheap bagpacks it still looks good after 5 months.
         What else do you need? 
-        "
-      items="
+      
 
-<div class='content-center px-6'>
+<div class='content-center text-center px-6'>
 <ol class='list-decimal inline-block'>
 
 <br><br>
-
 <p class='underline'>
-
-general:</p>
-<br>
+general:</p><br>
 
   <li>backpack</li>
   <li>daypack</li>
@@ -228,13 +230,9 @@ general:</p>
      <li>1x towel</li>
      <li>2x smaller bags for tiny things</li>
      
-
 <br><br>
-
 <p class='underline'>
-
-wallet:</p>
-<br>
+wallet:</p><br>
 
   <li>passport</li>
   <li>international driving license</li>
@@ -373,34 +371,24 @@ electronics:</p>
       "
 	/>
 
-
-       <Card headline="Cambodia" text="test text" />
-            <Card headline="Vietnam" text="test text" />
-                      <Card headline="Laos" text="test text" />
-                           <Card headline="Thailand" text="test text" />
-                                <Card headline="Sri Lanka" text="test text" />
-                                     <Card headline="Croatia" text="test text" />
-     <Card headline="Italy" text="test text" />
-     <Card headline="Greece" text="test text" />
-          <Card headline="Turkey" text="test text" />
-     <Card headline="Bulgaria" text="test text" />
-     <Card headline="Romania" text="test text" />
-     <Card headline="Hungary" text="test text" />
-     <Card headline="Scotland" text="test text" />
-     <Card headline="England" text="test text" />
-     <Card headline="Portugal" text="test text" />
-          <Card headline="Spain" text="test text" />
-     <Card headline="France="test    
-       <Card headline="Poland" text="test text" />
-     <Card headline="France" text="test text" />
-" />
-
-
-
-
-
-
-
-
-    </div>
-
+	<Card headline="Cambodia 05/2023" text="test text" />
+	<Card headline="Vietnam 04 & 05/2023" text="test text" />
+	<Card headline="Laos" text="test text" />
+	<Card headline="Thailand" text="test text" />
+	<Card headline="Sri Lanka" text="test text" />
+	<Card headline="Croatia" text="test text" />
+	<Card headline="Italy" text="test text" />
+	<Card headline="Greece" text="test text" />
+	<Card headline="Turkey" text="test text" />
+	<Card headline="Bulgaria" text="test text" />
+	<Card headline="Romania" text="test text" />
+	<Card headline="Hungary" text="test text" />
+	<Card headline="Scotland" text="test text" />
+	<Card headline="England" text="test text" />
+	<Card headline="Portugal" text="test text" />
+	<Card headline="Spain" text="test text" />
+	<Card headline="France XX/2022" text="test text" />
+	<Card headline="Georgia 02/2022" text="test text" />
+	<Card headline="Belgium" text="test text" />
+	<Card headline="Poland" text="test text" />
+</div>
