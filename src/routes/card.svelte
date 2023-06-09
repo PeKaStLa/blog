@@ -3,7 +3,6 @@
 
     export let headline;
     export let text;
-    export let items = "";
 
     //export let text: string;
     

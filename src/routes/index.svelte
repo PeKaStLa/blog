@@ -40,8 +40,54 @@ mx-auto px-2
 	</div>
 
 	<Card headline="test headline" text="test text" />
-
 	<Card headline="test headline" text="test text" />
+	<Card headline="mariaDB" 
+  text="Starting the mariaDB-service with systemd:
+  <br><br>
+  'sudo systemctl start mariadb.service'.
+  <br><br>
+  First login into mariaDB after installation via root:
+  <br><br>
+  'sudo mysql -u root'.
+  <br><br> 
+  You can check for users with 
+  'SELECT user,host,password FROM mysql.user;'
+  <br><br>
+  Then set the password for your mysql user with 
+  'ALTER USER 'mysql'@'localhost' IDENTIFIED BY 'NewPassword';'.
+  And reload the grant tables with 
+  'FLUSH PRIVILEGES;'.
+<br><br>
+Now you can login with the mysql user and your new password.
+
+
+
+
+" />
+
+
+
+	<Card headline="Running processes" 
+  text="List all running processes with 'ps -e' or 'ps -A'. 
+  'ps -ax' ergibt eine List mit längeren Namen??
+  You can search the proces list for specific results with 'ps ax | grep mysql'.
+  " />
+
+	<Card headline="search dnf for available packages"
+  
+   text="The command 'dnf list' will give you all 
+   available packages. These results you can filter 
+   for specific terms (for example mariadb) by 
+   running 'dnf list | grep maradb'
+   <br><br> Also you can list all installed packages
+   with the command 'dnf list installed' and filter
+   these packages with 'dnf list installed | grep mariadb'.
+   <br><br>
+   Without grep you can use 'dnf list installed mariadb*'.
+   For exact matches in searching you can use 
+   'dnf list installed mariadb105'
+   
+   " />
 
 	<Card
 		headline="Installing software manually when it is not available with the software package manager"
