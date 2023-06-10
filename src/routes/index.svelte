@@ -41,6 +41,8 @@ mx-auto px-2
 
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
 	<Card headline="mariaDB" 
   text="Starting the mariaDB-service with systemd:
   <br><br>
@@ -88,6 +90,20 @@ Now you can login with the mysql user and your new password.
    'dnf list installed mariadb105'
    
    " />
+
+	<Card headline="Adding a software-repository to the package manager manually" 
+  
+  text="In the beginning the software-search with 'dnf list jenkins*' 
+   shows no result. There is no jenkins-repository known to the package manager.
+   So the first step is to add the repository manually to '/etc/yum.repos.d'.
+
+   After this step the 'dnf list jenkins*'-search shows the repositoryas an result.
+   Now you just need to install that the normal way.
+  
+  1. Add jenkins-repository to yum
+
+
+" />
 
 	<Card
 		headline="Installing software manually when it is not available with the software package manager"
