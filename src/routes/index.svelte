@@ -11,7 +11,7 @@
             rounded-md text-black  border-white
  "
 	>
-	Peters' Blog - 10.06.2023 - 23:20
+	Peters' Blog - 11.06.2023 - 14:19
 	</h1>
 
 	<div
@@ -42,7 +42,11 @@ mx-auto px-2
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
-	<Card headline="test headline" text="test text" />
+	<Card headline="Print PATH" 
+  text="echo $PATH
+  <br><br>
+  
+  " />
 	<Card headline="mariaDB" 
   text="Starting the mariaDB-service with systemd:
   <br><br>
@@ -95,12 +99,12 @@ Now you can login with the mysql user and your new password.
   
   text="In the beginning the software-search with 'dnf list jenkins*' 
    shows no result. There is no jenkins-repository known to the package manager.
-   So the first step is to add the repository manually to '/etc/yum.repos.d'.
-
+   So the first step is to add the repository manually to '/etc/yum.repos.d' via 
+   the command 'sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo'.
    After this step the 'dnf list jenkins*'-search shows the repositoryas an result.
-   Now you just need to install that the normal way.
-  
-  1. Add jenkins-repository to yum
+   Now you just need to install it the normal way with 
+   'sudo dnf install jenkins'.
 
 
 " />
