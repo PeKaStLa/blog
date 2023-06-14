@@ -11,7 +11,7 @@
             rounded-md text-black  border-white
  "
 	>
-	Peters' Blog - 11.06.2023 - test 18:18
+	Peters' Blog - 14.06.2023 - 01:38
 	</h1>
 
 	<div
@@ -37,12 +37,34 @@ mx-auto px-2
 		/>
 
 		<h5 class="text-xs	">Ta Prohm, Cambodia</h5>
+<br>
+    <p>This Site is in the making permantently.</p>
 	</div>
 
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
-	<Card headline="test headline" text="test text" />
-	<Card headline="Print PATH" 
+	
+  
+  
+  <Card headline="Wait - actually completely different cases..." 
+  
+  
+  text="
+  Installing software manually - There are two ways to install software on a 
+  linux system when the package manager(PM) does not 
+  show a available repository:
+  <br><br>
+  1. Add the repository to the PM and install it with the PM.
+  <br>
+  2. Download the installation-file and extract it. Then run the installation-file.
+  <br><br>" 
+  
+  
+  />
+	
+  
+  
+  <Card headline="Print PATH" 
   text="echo $PATH
   <br><br>
   
@@ -456,5 +478,70 @@ electronics:</p>
 	<Card headline="France XX/2022" text="test text" />
 	<Card headline="Georgia 02/2022" text="test text" />
 	<Card headline="Belgium" text="test text" />
-	<Card headline="Poland" text="test text" />
+	<Card headline="Krakow, Poland" text="test text" />
+
+
+	<Card headline="Warsaw, Poland" text="Some time in the second half of 2019
+  (found the ticket, it was on 13.09.2019)
+  I decided to take a Flixbus from Berlin to Warsaw for 
+  a solo-weekendtrip. I wanted to try out 'Couchsurfing' 
+  and I texted some people beforehand. I was lucky and found someone.
+  So some days before I bought a bottle 'Berliner Luft' as a gift.
+On Friday (sometime around noon) I jumped out of the 
+university building and into the S-Bahn to get to the 
+busstation fast (other side of the city).
+Made it on time and could  lay back and enjoy the ride.
+Berlin -> Warsaw.. it took around 6-8h.
+So I arrived in Warsaw very late.. around 10pm at bus/train station Warschau West (Warszawa Zachodnia).
+Now the local public transport bus to my host. 
+He lived close to Łazienki-Park... It was exactly at the 
+big intersection south-east of the park.
+When I arrived I asked him how to open the door. 
+He gave me the number code. I unsuccessfully tried to open the door 
+ and told him it didnt work. 
+He came down from his flat and tried it by himself...
+Of course it worked now :D....
+Anyways its 11pm now and he shows me around the flat and tells me about the town, 
+what to do and how to get around...
+I give him my gift from Berlin and he is really happy about it - so worth it:)
+Also he has an own room for visitors/Couchsurfers.
+So we go sleeping because he has to get up at 5am and I have to get out of the flat with him.
+Good night....<br><br>
+Next morning at 4:sth am we get up and ready to leave... 
+Its still dark ofc and im tired and cold..
+What can I do at 5am??
+I decide to go to the city-center. Tried to take a public bus... But unfortunately - unlike the busses in Berlin - 
+they dont open the doors automatically when somebody is waiting at the bus station.
+I didnt know that for the first try and stupidly waited at the closed door. 
+The driver didnt really feel like caring and just continued on his journey without asking what was wrong with me....
+So the second public bus I noticed the green buttons at the bus' front door.
+Now i could open and finally take the bus to the city center. :)
+The bus didnt bring me exactl to my final destination.
+I continued walking... On my way I came across the soldiers
+at the grave of the unknown soldier. The flame was burning. 
+I was alone with the two soldiers keeping watch.
+It started getting dawn.
+Now a van arrived at the square and a guy put some of these new electrical 
+scooters next to me. I thought 'ok, lets do try this out.'.
+Here we go. But first I needed to install some apps and register
+a payment method... I didnt have a creditcard back then... But paypal worked luckily.. or sort of..
+The payment didnt go through but the scooter got unlocked while the payment was on hold or sth...
+So lets go to the center finally.. I arrive a the big square with the column and stop the scooter.
+It gets locked and in the app I see that I dont get a second chance.
+The payment didnt work and now I owe them 0,60€. Fuck. 
+Anyways... Lets leave the scooter behind and walk around.
+Its still really cold but luckily the morning sun perfectly starts flowing over the square.
+I keep standing in the warm sun for a bit.
+Around me only very few people are awake.
+<br><br>
+Also on couchsurfing I was texting with a girl I asked for a couch.
+She said no to the couch but yes to meeting up.
+We met for a so called FREE TOUR. You only give a donation after the tour - if you like.
+The tours meet (of course) at the column. Then we went around the old town and next to the old city-wall.
+
+
+
+
+
+  " />
 </div>
