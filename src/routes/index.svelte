@@ -43,16 +43,28 @@ mx-auto px-2
 
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
-	
 	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	
+	<Card headline="command for all files" 
+  
+  text="
+  
+  If you want to run a command like rm or chmod and use it on all
+  files in the directory you can run: '$ chmod +x *'.
+  
+  " />
 	
   
   <Card headline="cron, crond, crontab, cronie" 
   
   text="
-  See here for an crontab-overview: <p class='text-orange-600	 inline' ><a  href='https://serverfault.com/questions/449651/why-is-my-crontab-not-working-and-how-can-i-troubleshoot-it'>serverfault_crontab</a></p>.
+  See here for an crontab-overview: <p class='text-orange-600	 inline' >
+  <a  href='https://serverfault.com/questions/449651/why-is-my-crontab-not-working-and-how-can-i-troubleshoot-it'>serverfault_crontab</a></p>.
   <br><br>
-  Make sure that Crontab is installed.
+  Make sure that cronie is installed.
 <br>
   When nothing works and the start or enable-command give you this:
   'Unit cron.service not found.'. Then this helped me in the end:
@@ -92,7 +104,14 @@ mx-auto px-2
   
   " />
 	<Card headline="mariaDB" 
-  text="Starting the mariaDB-service with systemd:
+  text="
+  It is important to install mariadb105, the connector and the server as well.
+  <br>
+  <br>
+  if you forget the server, you get this error-message:
+  'ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)'
+  <br><br>  
+  Starting the mariaDB-service with systemd:
   <br><br>
   'sudo systemctl start mariadb.service'.
   <br><br>
@@ -114,6 +133,61 @@ Now you can login with the mysql user and your new password.
 
 
 " />
+	<Card headline="mysql/mariaDB getting started"
+  
+   text="After the installation you can 
+   1. show all DBs, 
+   2. create a new DB, 
+   3. use a DB, 
+   4. create a table, 
+   5. add a record, 
+   6. delete a record, 
+   7. show all tables on the DB, 
+   8. show all records of one table :
+<br>
+<br>
+   <table class=' border-collapse border-separate border-spacing-4 border border-slate-600  table-auto '>
+  <thead>
+    <tr>
+      <th class='border border-slate-600 p-2'>task</th>
+      <th class='border border-slate-600 p-2'>SQL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr >
+      <td class='border border-slate-600 p-2' >use a DB</td>
+      <td class='border border-slate-600 p-2' >use dev;</td>
+    </tr>
+      <tr >
+      <td class='border border-slate-600 p-2' >create a table</td>
+      <td class='border border-slate-600 p-2' >CREATE TABLE tasks (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    text TEXT,
+    type ENUM('todo', 'process', 'done') NOT NULL
+);</td>
+    </tr>
+      <tr >
+      <td class='border border-slate-600 p-2' >add a record</td>
+      <td class='border border-slate-600 p-2' >INSERT INTO tasks (title, text, type)
+VALUES ('ex_title', 'ex_text', 'todo');</td>
+    </tr>
+      <tr >
+      <td class='border border-slate-600 p-2' >delete a record</td>
+      <td class='border border-slate-600 p-2' >DELETE FROM tasks WHERE id = 2;</td>
+    </tr>
+    <tr>
+      <td class='border border-slate-600 p-2' >show all tables on the DB</td>
+      <td class='border border-slate-600 p-2' >show tables;</td>
+    </tr>
+    <tr>
+      <td class='border border-slate-600 p-2' >show all records of one table</td>
+      <td class='border border-slate-600 p-2' >select * from tasks;</td>
+    </tr>
+  </tbody>
+</table>
+   
+   " />
 
 
 
@@ -128,7 +202,7 @@ Now you can login with the mysql user and your new password.
    text="The command 'dnf list' will give you all 
    available packages. These results you can filter 
    for specific terms (for example mariadb) by 
-   running 'dnf list | grep maradb'
+   running 'dnf list | grep mariadb'
    <br><br> Also you can list all installed packages
    with the command 'dnf list installed' and filter
    these packages with 'dnf list installed | grep mariadb'.
