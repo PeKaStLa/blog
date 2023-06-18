@@ -11,7 +11,7 @@
             rounded-md text-black  border-white
  "
 	>
-	Peters' Blog - 14.06.2023 - 18:49 - test cronjob
+	Peters' Blog - 18.06.2023 - 23:04
 	</h1>
 
 	<div
@@ -50,11 +50,17 @@ mx-auto px-2
   <Card headline="cron, crond, crontab, cronie" 
   
   text="
-  So many words and problems around cron.
-  See here for an overview: '<a href='https://serverfault.com/questions/449651/why-is-my-crontab-not-working-and-how-can-i-troubleshoot-it'>serverfault_crontab</a>'.
+  See here for an crontab-overview: <p class='text-orange-600	 inline' ><a  href='https://serverfault.com/questions/449651/why-is-my-crontab-not-working-and-how-can-i-troubleshoot-it'>serverfault_crontab</a></p>.
   <br><br>
-  When nothing works and even the start or enable-command give you this: ' Unit cron.service not found.'. Then this one helped me in the end:
+  Make sure that Crontab is installed.
+<br>
+  When nothing works and the start or enable-command give you this:
+  'Unit cron.service not found.'. Then this helped me in the end:
   <br><br>
+  'which crontab' 
+  <br> 
+  'sudo systemctl enable crond.service'
+  <br>
   'sudo systemctl start crond.service'
 
   
