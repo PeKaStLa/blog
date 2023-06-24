@@ -45,7 +45,25 @@ mx-auto px-2
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
-	<Card headline="test headline" text="test text" />
+	
+  
+  
+  
+  <Card headline="kill a process"
+   text="
+   
+   If you know the port which your process is 
+   using, you can kill by port number:
+   'fuser -k 3010/tcpp'
+   <br><br>
+   If you know the process 
+   ID you can
+   kill by the ID:
+   'kill -9 16531'.
+   
+   
+   
+   " />
 	
   
   
