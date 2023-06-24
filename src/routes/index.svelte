@@ -46,7 +46,20 @@ mx-auto px-2
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
-	<Card headline="test headline" text="test text" />
+	
+  
+  
+  <Card headline="Get volume information" 
+  
+  text="1. Get all available volumes:
+  <br> sudo lsblk
+  <br><br>
+  2. get volume information
+  <br> df -h (all volumes)
+  <br> df -h /dev/xvda1 (specific volume)
+  
+  
+  " />
 	
 	<Card headline="command for all files" 
   
