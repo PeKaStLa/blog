@@ -11,7 +11,7 @@
             rounded-md text-black  border-white
  "
 	>
-	Peters' Blog - 18.06.2023 - 23:04
+	Peters' Blog
 	</h1>
 
 	<div
@@ -38,13 +38,39 @@ mx-auto px-2
 
 		<h5 class="text-xs	">Ta Prohm, Cambodia</h5>
 <br>
-    <p>This Site is in the making permantently.</p>
+    <p>This site is under construction permanently.</p>
 	</div>
 
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
-	<Card headline="test headline" text="test text" />
-	<Card headline="test headline" text="test text" />
+	
+  
+  
+  <Card headline="Terraform CLI" 
+  text="
+  
+
+
+  <br>
+  <br>terraform apply
+  <br>terraform validate
+  <br>terraform fmt
+  <br>terraform plan
+  <br>terraform init
+  <br>terraform -v
+
+  
+  " />
+	
+  
+  
+  
+  <Card headline="wget vs curl" 
+  
+  text="usage and use cases
+  
+  
+  " />
 	
   
   
