@@ -425,7 +425,8 @@ Even in case we did not check for the process-ID before.
 	<Card
 		headline="How to travel with a 20-liter backpack (for 7 months or more)"
 		text="First things first. Most important during the whole trip is the backpack itself. I used the cheap but robust 'Arpenaz NH100 20 L' from Decathlon. Unlike many other cheap bagpacks it still looks good after 5 months.
-        What else do you need? 
+        What else do you need? Most important is to not pack too much. Ask yourself 'What is the worst that can happen, if I don't have it with me?'
+        If it is not too bad, then do not pack it.
       
 
 <div class='content-center text-center px-6'>
