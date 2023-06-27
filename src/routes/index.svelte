@@ -43,14 +43,40 @@ mx-auto px-2
 
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+  <Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+  <Card headline="test headline" text="test text" />
 	
   
   
-  <Card headline="Terraform CLI" 
+  <Card headline="Get all manually installed packages" 
   text="
+  
+  With 'dnf --installed list' you get a list of all installed packages.
+  But you also get pre-installed packages which you can 
+  identify by the @System in the 3rd column.
+  To filter for manually installed packages only you can use 
+  'dnf --installed list | grep @amazonlinux'
+  
+  
+  " />
+	
+  
   
 
 
+  
+
+
+
+  <Card headline="Terraform CLI" 
+  text="
   <br>
   <br>terraform apply
   <br>terraform validate
@@ -67,8 +93,9 @@ mx-auto px-2
   
   <Card headline="wget vs curl" 
   
-  text="usage and use cases
-  
+  text="usage and use cases.
+  curl can do more.. more protocols.
+  wget easier to use.
   
   " />
 	
