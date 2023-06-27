@@ -11,7 +11,7 @@
             rounded-md text-black  border-white
  "
 	>
-	Peters' Blog - test 28.06. test2
+	Peters' Blog - test 28.06. test3
 	</h1>
 
 	<div
