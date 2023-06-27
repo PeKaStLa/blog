@@ -77,6 +77,13 @@ mx-auto px-2
 
   <Card headline="Terraform CLI" 
   text="
+
+
+  <br> 
+  <br>
+  <br>
+  <br>terraform show
+  <br>less terraform.tfstate
   <br>
   <br>terraform apply
   <br>terraform validate
