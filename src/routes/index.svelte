@@ -518,7 +518,16 @@ second unzip it with tar:
      tmux ls  -F 'socket_path: #&#123;socket_path&#125; | session_name: #&#123;session_name&#125; | 
      session_id: #&#123;session_id&#125; | server_pid: #&#123;pid&#125; | pane_pid: #&#123;pane_pid&#125; | 
      session_created: #&#123;t:session_created&#125; | session_activity: #&#123;t:session_activity&#125;'
-      "
+
+
+     <br><br>
+     
+     socket_path: /tmp/tmux-1000/default | session_name: blog | 
+     session_id: $0 | server_pid: 411054 | pane_pid: 411055 | 
+     session_created: Thu Jun 29 13:28:52 2023 | 
+     session_activity: Thu Jun 29 13:31:22 2023 
+     
+     "
 	/>
 
 	<Card
