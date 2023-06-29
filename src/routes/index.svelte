@@ -516,27 +516,47 @@ second unzip it with tar:
      <br>
      3. (additionally:) get tmux-information like socket, sessions, server-IP and session-IPs:
      <br><br>
-     tmux ls  -F 'socket_path: #&#123;socket_path&#125; | session_name: #&#123;session_name&#125; | 
-     session_id: #&#123;session_id&#125; | server_pid: #&#123;pid&#125; | pane_pid: #&#123;pane_pid&#125; | 
-     session_created: #&#123;t:session_created&#125; | session_activity: #&#123;t:session_activity&#125;'
+
+     <table class=' rounded-md border-collapse border-separate border-spacing-4 border border-slate-600  table-auto '>
+      <thead>
+        <tr>
+          <th class='border border-slate-600 p-2'>tmux-command</th>
+          <th class='border border-slate-600 p-2'>output</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr >
+          <td class='border border-slate-600 p-2' > tmux ls -F 'session_name: #&#123;session_name&#125; | pane_pid: #&#123;pane_pid&#125;' | grep blog | awk -F'[: ]+' '&#123;print $NF&#125;'</td>
+          <td class='border border-slate-600 p-2' >414018</td>
+        </tr>
+        <tr >
+          <td class='border border-slate-600 p-2' > tmux ls  -F 'socket_path: #&#123;socket_path&#125; | session_name: #&#123;session_name&#125; | 
+            session_id: #&#123;session_id&#125; | server_pid: #&#123;pid&#125; | pane_pid: #&#123;pane_pid&#125; | 
+            session_created: #&#123;t:session_created&#125; | session_activity: #&#123;t:session_activity&#125;'</td>
+          <td class='border border-slate-600 p-2' >socket_path: /tmp/tmux-1000/default | session_name: blog | 
+            session_id: $0 | server_pid: 411054 | pane_pid: 411055 | 
+            session_created: Thu Jun 29 13:28:52 2023 | 
+            session_activity: Thu Jun 29 13:31:22 2023</td>
+        </tr>
+        <tr >
+          <td class='border border-slate-600 p-2' >tmux ls</td>
+          <td class='border border-slate-600 p-2' >blog: 1 windows (created Thu Jun 29 14:10:01 2023)
+            <br>            fewo: 1 windows (created Thu Jun 29 13:30:01 2023)</td>
+        </tr>
+        <tr >
+          <td class='border border-slate-600 p-2' >tmux -L session-name</td>
+          <td class='border border-slate-600 p-2' >connects to session</td>
+        </tr>
+        <tr >
+          <td class='border border-slate-600 p-2' ></td>
+          <td class='border border-slate-600 p-2' ></td>
+        </tr>
+      </tbody>
+    </table>
 
 
-     <br><br>
-     
-     socket_path: /tmp/tmux-1000/default | session_name: blog | 
-     session_id: $0 | server_pid: 411054 | pane_pid: 411055 | 
-     session_created: Thu Jun 29 13:28:52 2023 | 
-     session_activity: Thu Jun 29 13:31:22 2023 
-     
-
-     <br><br>
-     tmux ls -F 'session_name: #{session_name} |||| pane_pid: #{pane_pid}' | grep blog | awk -F'[: ]+' '{print $NF}'
 
 
-     <br><br>
-     -> filters the output for session name 'blog' and omnly outputs the last number:
-     <br>
-     = 414018
      "
 	/>
 
