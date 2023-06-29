@@ -116,12 +116,10 @@ implicit localhost does not match 'all'
 		headline="extract IP out of terraform output"
 		text="
   
-  If 'terraform output' gives you an 'instance_public_ip' inside of the output like this:
-  (quotes are written out so this JS-site can be displayed correctly)
-  <br><br>
+  If 'terraform output' gives you an 'instance_public_ip' inside of the output like this:  <br><br>
 
 instance_id = 'i-03924bae54990efad'<br>
-instance_public_ip = (quote) 18.197.126.124 (quote)<br>
+instance_public_ip = &quot; 18.197.126.124 &quot;<br>
 route53_zone_nameservers = tolist([<br>
   'ns-1063.awsdns-04.org',<br>
   'ns-1819.awsdns-35.co.uk',<br>
@@ -133,7 +131,7 @@ route53_zone_nameservers = tolist([<br>
 
   You can extract only the IP-adress with following command:<br><br>
   terraform output | grep instance_public_ip |  
-  sed -r (quote) s/.*?([\(quote)'])(.*)\1.*/\2/(quote)
+  sed -r &quot; s/.*?([\&quot;'])(.*)\1.*/\2/&quot;
   
   
   "
@@ -169,7 +167,7 @@ route53_zone_nameservers = tolist([<br>
     </thead>
     <tbody>
       <tr >
-        <td class='border border-slate-600 p-2' >Echo the output of the last applied config.tf</td>
+        <td class='border border-slate-600 p-2' >echo the output of the last applied config.tf</td>
         <td class='border border-slate-600 p-2' >terraform output</td>
       </tr>
         <tr >
@@ -177,7 +175,7 @@ route53_zone_nameservers = tolist([<br>
         <td class='border border-slate-600 p-2' >terraform apply -var 'instance_name=YetAnotherName'</td>
       </tr>
         <tr >
-        <td class='border border-slate-600 p-2' >destroy the last applied config</td>
+        <td class='border border-slate-600 p-2' >destroy the currently applied infrastructure</td>
         <td class='border border-slate-600 p-2' >terraform destroy</td>
       </tr>
         <tr >
@@ -186,7 +184,7 @@ route53_zone_nameservers = tolist([<br>
       </tr>
   
       <tr>
-        <td class='border border-slate-600 p-2' >Create the infrastructure of the current config</td>
+        <td class='border border-slate-600 p-2' >Create the infrastructure</td>
         <td class='border border-slate-600 p-2' >terraform apply</td>
       </tr>
       <tr>
@@ -194,11 +192,11 @@ route53_zone_nameservers = tolist([<br>
         <td class='border border-slate-600 p-2' >terraform validate</td>
       </tr>
       <tr>
-        <td class='border border-slate-600 p-2' >format the config file</td>
+        <td class='border border-slate-600 p-2' >format the config</td>
         <td class='border border-slate-600 p-2' >terraform fmt</td>
       </tr>
       <tr>
-        <td class='border border-slate-600 p-2' >show the plan according to the config-file</td>
+        <td class='border border-slate-600 p-2' >show the creation plan according to the config</td>
         <td class='border border-slate-600 p-2' >terraform plan</td>
       </tr>
       <tr>
@@ -206,7 +204,7 @@ route53_zone_nameservers = tolist([<br>
         <td class='border border-slate-600 p-2' >terraform init</td>
       </tr>
       <tr>
-        <td class='border border-slate-600 p-2' >see if terraform is installed + version</td>
+        <td class='border border-slate-600 p-2' >check if terraform is installed + version</td>
         <td class='border border-slate-600 p-2' >terraform -v</td>
       </tr>
     </tbody>
