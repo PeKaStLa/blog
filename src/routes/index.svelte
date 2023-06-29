@@ -513,11 +513,11 @@ second unzip it with tar:
      2. command: 'tmux send -t blog ''PORT=3006 node ~/blog/build/index.js'' ENTER'
      <br>
      <br>
-     3. (additionally:) get tmux socket, sessions, server-IP and session-IPs:
+     3. (additionally:) get tmux-information like socket, sessions, server-IP and session-IPs:
      <br><br>
-     tmux ls  -F 'socket_path: #&#123;ocket_path&#125; | session_name: #&#123;session_name&#125; 
-     | server_pid: #&#123;pid&#125; | pane_pid: #&#123;pane_pid&#125;'
-     
+     tmux ls  -F 'socket_path: #&#123;socket_path&#125; | session_name: #&#123;session_name&#125; | 
+     session_id: #&#123;session_id&#125; | server_pid: #&#123;pid&#125; | pane_pid: #&#123;pane_pid&#125; | 
+     session_created: #&#123;t:session_created&#125; | session_activity: #&#123;t:session_activity&#125;'
       "
 	/>
 
