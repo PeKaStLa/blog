@@ -11,7 +11,7 @@
             rounded-md text-black  border-white
  "
 	>
-		Peters' Blog - 29.06.23 - 15:32
+		Peters' Blog - 29.06.23 - 15:49
 
 	</h1>
 
@@ -512,6 +512,11 @@ second unzip it with tar:
      <br>
      2. command: 'tmux send -t blog ''PORT=3006 node ~/blog/build/index.js'' ENTER'
      <br>
+     <br>
+     3. (additionally:) get tmux socket, sessions, server-IP and session-IPs:
+     <br><br>
+     tmux ls  -F 'socket_path: #&#123;ocket_path&#125; | session_name: #&#123;session_name&#125; 
+     | server_pid: #&#123;pid&#125; | pane_pid: #&#123;pane_pid&#125;'
      
       "
 	/>
