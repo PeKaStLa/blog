@@ -12,8 +12,7 @@
             rounded-md text-black  border-white
  "
 	>
-		Peters' Blog - 29.06.23 - 15:59
-
+		Peters' Blog - 29.06.23 - 22:23
 	</h1>
 
 	<div
@@ -541,7 +540,7 @@ second unzip it with tar:
         <tr >
           <td class='border border-slate-600 p-2' >tmux ls</td>
           <td class='border border-slate-600 p-2' >blog: 1 windows (created Thu Jun 29 14:10:01 2023)
-            <br>            fewo: 1 windows (created Thu Jun 29 13:30:01 2023)</td>
+         <br>fewo: 1 windows (created Thu Jun 29 13:30:01 2023)</td>
         </tr>
         <tr >
           <td class='border border-slate-600 p-2' >tmux -L session-name</td>
@@ -669,7 +668,6 @@ Even in case we did not check for the process-ID before.
 	<Card
 		headline="(AWS) Adding a new Hosted Zone after deleting the domains' original Hosted Zone "
 		text="When you buy a domain at AWS your first hosted zone gets generated automatically. Later I deleted this hosted zone to save some money on AWS-fees during a long travel. After coming home from the vacation I didn't remember much about the orignal hosted zone. I just created a new hosted zone and added the records for simple routing to the www-domain and the short domain-name. After starting the EC2-Server and installing nginx - there was nothing to see on my domain. So I tried reaching my public-IP. Luckily there I could see the 'Welcome to nginx!'-Page. So where is the error in this? After some searching I found out that the nameservers of the new hosted zone are different to the ones of the domain. I copied all of the four nameservers from the hosted zone and pasted them into the records of the domain. Instead of the notified 24 hours it just took 2 or 3 minutes to apply the changes. Now everything worked as it should. The domain and the public-IP showed the same page."
-
 	/>
 	<Image src="pangolin.png" alt="pangolin" />
 	<Image src="pangolin_2.png" alt="pangolin_2" />
