@@ -11,7 +11,7 @@
             rounded-md text-black  border-white
  "
 	>
-		Peters' Blog - 29.06. 23
+		Peters' Blog - 29.06.23 - 14:18
 	</h1>
 
 	<div
@@ -119,7 +119,7 @@ implicit localhost does not match 'all'
   If 'terraform output' gives you an 'instance_public_ip' inside of the output like this:  <br><br>
 
 instance_id = 'i-03924bae54990efad'<br>
-instance_public_ip = &quot; 18.197.126.124 &quot;<br>
+instance_public_ip = &quot;18.197.126.124&quot;<br>
 route53_zone_nameservers = tolist([<br>
   'ns-1063.awsdns-04.org',<br>
   'ns-1819.awsdns-35.co.uk',<br>
@@ -130,7 +130,7 @@ route53_zone_nameservers = tolist([<br>
 <br><br>
 
   You can extract only the IP-adress with following command:<br><br>
-  terraform output | grep instance_public_ip |  
+  &emsp; terraform output | grep instance_public_ip |  
   sed -r &quot; s/.*?([\&quot;'])(.*)\1.*/\2/&quot;
   
   
@@ -145,7 +145,7 @@ route53_zone_nameservers = tolist([<br>
   But you also get pre-installed packages which you can 
   identify by the @System in the 3rd column.
   To filter for manually installed packages only you can use: <br><br>
-  dnf --installed list | grep @amazonlinux
+  &emsp;dnf --installed list | grep @amazonlinux
   
   
    "
@@ -180,7 +180,7 @@ route53_zone_nameservers = tolist([<br>
       </tr>
         <tr >
         <td class='border border-slate-600 p-2' >show content of 'terraform.tfstate' of the currently applied config</td>
-        <td class='border border-slate-600 p-2' >terraform show or less terraform.tfstate</td>
+        <td class='border border-slate-600 p-2' >terraform show  <b> or </b>less terraform.tfstate</td>
       </tr>
   
       <tr>
@@ -209,22 +209,6 @@ route53_zone_nameservers = tolist([<br>
       </tr>
     </tbody>
   </table>
-
-  <br>terraform output
-  <br>
-  <br>terraform apply -var 'instance_name=YetAnotherName'
-  <br>
-  <br>terraform destroy
-  <br>terraform show
-  <br>less terraform.tfstate
-  <br>
-  <br>terraform apply
-  <br>terraform validate
-  <br>terraform fmt
-  <br>terraform plan
-  <br>terraform init
-  <br>terraform -v
-
   
   "
 	/>
@@ -242,14 +226,11 @@ route53_zone_nameservers = tolist([<br>
 		headline="kill a process"
 		text="
    
-   If you know the port which your process is 
-   using, you can kill by port number:
-   'fuser -k 3010/tcpp'
-   <br><br>
-   If you know the process 
-   ID you can
-   kill by the ID:
-   'kill -9 16531'.
+   1. by port:
+   <br>&emsp;'fuser -k 3010/tcp'
+   <br>
+   2. by process-ID
+   <br>&emsp;'kill -9 16531'.
    
    
    
@@ -259,23 +240,20 @@ route53_zone_nameservers = tolist([<br>
 	<Card
 		headline="Get volume information"
 		text="1. Get all available volumes:
-  <br> sudo lsblk
-  <br><br>
+    <br>&emsp;sudo lsblk
+  <br>
   2. get volume information
-  <br> df -h (all volumes)
-  <br> df -h /dev/xvda1 (specific volume)
-  
-  
+  <br>&emsp;df -h (all volumes)
+  <br>&emsp;df -h /dev/xvda1 (specific volume)
   "
 	/>
 
 	<Card
 		headline="command for all files"
 		text="
-  
-  If you want to run a command like rm or chmod and use it on all
-  files in the directory you can run: '$ chmod +x *'.
-  
+  If you want to execute a command like 'rm' or 'chmod' and use it on all
+  files in the current directory you can run: 
+  <br>&emsp;chmod +x *
   "
 	/>
 
@@ -288,13 +266,13 @@ route53_zone_nameservers = tolist([<br>
   Make sure that cronie is installed.
 <br>
   When nothing works and the start or enable-command give you this:
-  'Unit cron.service not found.'. Then this helped me in the end:
-  <br><br>
-  'which crontab' (shows if cronie is installed)
-  <br> 
-  'sudo systemctl enable crond.service'
+  <br><br>&emsp; 
+  Unit cron.service not found.
+  <br><br> Then this helped me in the end:
   <br>
-  'sudo systemctl start crond.service'
+  <br>&emsp; 1. which crontab (shows if cronie is installed)
+  <br>&emsp; 2. sudo systemctl enable crond.service
+  <br>&emsp; 3. sudo systemctl start crond.service
 
   
   "
@@ -310,46 +288,87 @@ route53_zone_nameservers = tolist([<br>
   <br><br>
   1. Add the repository to the package-manager locally and then install it with the package-manager.
   <br>
-  2. Download the file from the software-repo directly and extract it. Then run the installation-file.
+  2. Download the file from the software-repo directly and evtl. extract it. Then run the installation-file.
   <br><br>"
 	/>
 
 	<Card
-		headline="Print PATH"
-		text="echo $PATH
-  <br><br>
+		headline="special variables in linux"
+		text="
   
+  <table class=' rounded-md border-collapse border-separate border-spacing-4 border border-slate-600  table-auto '>
+    <thead>
+      <tr>
+        <th class='border border-slate-600 p-2'>info</th>
+        <th class='border border-slate-600 p-2'>variable</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td class='border border-slate-600 p-2' >environment variable</td>
+        <td class='border border-slate-600 p-2' >$PATH</td>
+      </tr>
+      <tr >
+        <td class='border border-slate-600 p-2' >last commands' exit code </td>
+        <td class='border border-slate-600 p-2' >$?</td>
+      </tr>
+      <tr >
+        <td class='border border-slate-600 p-2' ></td>
+        <td class='border border-slate-600 p-2' ></td>
+      </tr>
+      <tr >
+        <td class='border border-slate-600 p-2' ></td>
+        <td class='border border-slate-600 p-2' ></td>
+      </tr>
+      <tr >
+        <td class='border border-slate-600 p-2' ></td>
+        <td class='border border-slate-600 p-2' ></td>
+      </tr>
+    </tbody>
+  </table>
+
   "
 	/>
 	<Card
-		headline="mariaDB"
+		headline="mariaDB first steps after installation"
 		text="
   It is important to install mariadb105, the connector and the server as well.
-  <br>
-  <br>
   If you forget the server, you get this error-message:
-  'ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)'
+  <br><br>ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
   <br><br>  
-  1. Starting the mariaDB-service with systemctl
+
+
+  <table class=' rounded-md border-collapse border-separate border-spacing-4 border border-slate-600  table-auto '>
+    <thead>
+      <tr>
+        <th class='border border-slate-600 p-2'>task</th>
+        <th class='border border-slate-600 p-2'>command</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td class='border border-slate-600 p-2' >Starting the mariaDB-service with systemctl</td>
+        <td class='border border-slate-600 p-2' >sudo systemctl start mariadb.service</td>
+      </tr>
+      <tr >
+        <td class='border border-slate-600 p-2' >First login into mariaDB after installation via root</td>
+        <td class='border border-slate-600 p-2' >sudo mysql -u root</td>
+      </tr>
+      <tr >
+        <td class='border border-slate-600 p-2' >Check for existing users and passwords</td>
+        <td class='border border-slate-600 p-2' >SELECT user,password FROM mysql.user;</td>
+      </tr>
+      <tr >
+        <td class='border border-slate-600 p-2' >Set the password for your user mysql</td>
+        <td class='border border-slate-600 p-2' >ALTER USER 'mysql'@'localhost' IDENTIFIED BY 'NewPassword';</td>
+      </tr>
+      <tr >
+        <td class='border border-slate-600 p-2' >Reload the grant tables</td>
+        <td class='border border-slate-600 p-2' >FLUSH PRIVILEGES;</td>
+      </tr>
+    </tbody>
+  </table>
   <br>
-  2. First login into mariaDB after installation via root
-  <br> 
-  3. Check for existing users and passwords
-  <br>
-  4. Set the password for your user mysql
-  <br>
-    5. Reload the grant tables  
-  <br><br>
-  1. 'sudo systemctl start mariadb.service'.
-  <br>
-  2. 'sudo mysql -u root'.
-  <br>
-  3. 'SELECT user,password FROM mysql.user;'
-  <br>
-  4. 'ALTER USER 'mysql'@'localhost' IDENTIFIED BY 'NewPassword';'.
-  <br> 
-  5. 'FLUSH PRIVILEGES;'.
-<br><br>
 Now you can login with the mysql user and your new password.
 
 
@@ -358,10 +377,8 @@ Now you can login with the mysql user and your new password.
 "
 	/>
 	<Card
-		headline="mysql/mariaDB getting started"
-		text="After the installation you can 
-<br>
-<br>
+		headline="mysql getting started"
+		text="
    <table class=' rounded-md border-collapse border-separate border-spacing-4 border border-slate-600  table-auto '>
   <thead>
     <tr>
@@ -416,15 +433,15 @@ VALUES ('ex_title', 'ex_text', 'todo');</td>
 	/>
 
 	<Card
-		headline="Running processes"
-		text="List all running processes with 'ps -e' or 'ps -A'. 
-  'ps -ax' ergibt eine List mit längeren Namen??
-  You can search the proces list for specific results with 'ps ax | grep mysql'.
+		headline="Get running processes"
+		text="List all running processes in standard syntax with <br>&emsp; ps -e <b> or </b> ps -A
+    <br>The same in BSD-sytanx works with <br>&emsp;ps -ax<br>
+  You can search the process list for specific results with <br>&emsp;ps ax | grep mysql
   "
 	/>
 
 	<Card
-		headline="search dnf for available packages"
+		headline="Search dnf for available packages"
 		text="The command 'dnf list' will give you all 
    available packages. These results you can filter 
    for specific terms (for example mariadb) by 
@@ -457,12 +474,7 @@ VALUES ('ex_title', 'ex_text', 'todo');</td>
 
 	<Card
 		headline="Installing software manually when it is not available with the software package manager"
-		text="On Amazon Linux 2023 and Amazon Linux 2 there 
-     there are many softwares missing like mariaDB, 
-     postgresql, node, npm.
-     
-     
-     <br><br>
+		text="
   For node and npm for example, we need to first add
   the node.js repository and install it after:
   <br><br>
