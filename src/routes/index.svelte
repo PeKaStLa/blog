@@ -11,7 +11,7 @@
             rounded-md text-black  border-white
  "
 	>
-	Peters' Blog - test 28.06. test3
+		Peters' Blog - test 28.06. test3
 	</h1>
 
 	<div
@@ -37,26 +37,96 @@ mx-auto px-2
 		/>
 
 		<h5 class="text-xs	">Ta Prohm, Cambodia</h5>
-<br>
-    <p>This site is under construction permanently.</p>
+		<br />
+		<p>This site is under construction permanently.</p>
 	</div>
 
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
-  <Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
-	<Card headline="test headline" text="test text" />
-  <Card headline="test headline" text="test text" />
-	
+	<Card
+		headline="Ansible commands"
+		text="
+    5. Dont use inventory but use the IP given as Paramter
+    <br>4. copy file to managed node
+    <br>3. run playbook on all nodes 
+    <br>2. execute command on all nodes
+    <br>1. Ping all nodes and use user ubuntu
+
+<br>
+
+  <br><br>5. ansible-playbook install_copy_start_nginx.yml --key-file '~/.ssh/terraform_3.pem' -i 3.120.246.200, --become
+  <br><br>4. ansible-playbook config_nginx.yml --key-file '~/.ssh/terraform_3.pem' --become
+  <br><br>3. ansible-playbook ansible_playbooks/mytask.yml --key-file '~/.ssh/terraform_3.pem'
+  <br><br>2. ansible all  --key-file '~/.ssh/terraform_3.pem' -a '/bin/echo hello'
+  <br><br>1. ansible all -m ping -u ubuntu --key-file '~/.ssh/terraform_3.pem'
+
+ 
+
+
+  "
+	/>
+
+	<Card
+		headline="Ansible - using RSA key to ping managed node"
+		text="
+  
+  When your AWS-instance has a RSA-key assigned, 
+  you can also connect to Ansible with this RSA-key using:
+  <br><br>
+  ansible all -m ping -u ubuntu --key-file '~/.ssh/key_name.pem'
+  <br><br>
+  without the '--key-file' using 
+  'ansible all -m ping -u ubuntu -i '~/.ssh/terraform_3.pem' 
+  you would get this error:
+  <br><br>
+  
+  <br>[WARNING]:  * Failed to parse /home/ec2-user/.ssh/terraform_3.pem with ini plugin:
+/home/ec2-user/.ssh/terraform_3.pem:1: Expected key=value host variable assignment,
+got: RSA
+<br>[WARNING]: Unable to parse /home/ec2-user/.ssh/terraform_3.pem as an inventory
+source
+<br>[WARNING]: No inventory was parsed, only implicit localhost is available
+<br>[WARNING]: provided hosts list is empty, only localhost is available. Note that the
+implicit localhost does not match 'all'
+  "
+	/>
+
+	<Card
+		headline="extract IP out of terraform output"
+		text="
+  
+  If 'terraform output' gives you an 'instance_public_ip' inside of the output like this:
+  (quotes are written out so this JS-site can be displayed correctly)
+  <br><br>
+  $ terraform output<br>
+instance_id = 'i-03924bae54990efad'<br>
+instance_public_ip = (quote) 18.197.126.124 (quote)<br>
+route53_zone_nameservers = tolist([<br>
+  'ns-1063.awsdns-04.org',<br>
+  'ns-1819.awsdns-35.co.uk',<br>
+  'ns-263.awsdns-32.com',<br>
+  'ns-538.awsdns-03.net',<br>
+])
+
+<br><br>
+
+  you can extract only the IP-adress with following command:<br><br>
+  'terraform output | grep instance_public_ip |  
+  sed -r (quote) s/.*?([\(quote)'])(.*)\1.*/\2/(quote)'.
   
   
-  <Card headline="Get all manually installed packages" 
-  text="
+  "
+	/>
+
+	<Card
+		headline="Get all manually installed packages"
+		text="
   
   With 'dnf --installed list' you get a list of all installed packages.
   But you also get pre-installed packages which you can 
@@ -65,23 +135,18 @@ mx-auto px-2
   'dnf --installed list | grep @amazonlinux'
   
   
-  " />
-	
-  
-  
+   "
+	/>
 
+	<Card
+		headline="Terraform CLI"
+		text="
 
-  
-
-
-
-  <Card headline="Terraform CLI" 
-  text="
-
-
-  <br> 
+  <br>terraform output
   <br>
+  <br>terraform apply -var 'instance_name=YetAnotherName'
   <br>
+  <br>terraform destroy
   <br>terraform show
   <br>less terraform.tfstate
   <br>
@@ -93,24 +158,21 @@ mx-auto px-2
   <br>terraform -v
 
   
-  " />
-	
-  
-  
-  
-  <Card headline="wget vs curl" 
-  
-  text="usage and use cases.
+  "
+	/>
+
+	<Card
+		headline="wget vs curl"
+		text="usage and use cases.
   curl can do more.. more protocols.
   wget easier to use.
   
-  " />
-	
-  
-  
-  
-  <Card headline="kill a process"
-   text="
+  "
+	/>
+
+	<Card
+		headline="kill a process"
+		text="
    
    If you know the port which your process is 
    using, you can kill by port number:
@@ -123,13 +185,12 @@ mx-auto px-2
    
    
    
-   " />
-	
-  
-  
-  <Card headline="Get volume information" 
-  
-  text="1. Get all available volumes:
+   "
+	/>
+
+	<Card
+		headline="Get volume information"
+		text="1. Get all available volumes:
   <br> sudo lsblk
   <br><br>
   2. get volume information
@@ -137,21 +198,22 @@ mx-auto px-2
   <br> df -h /dev/xvda1 (specific volume)
   
   
-  " />
-	
-	<Card headline="command for all files" 
-  
-  text="
+  "
+	/>
+
+	<Card
+		headline="command for all files"
+		text="
   
   If you want to run a command like rm or chmod and use it on all
   files in the directory you can run: '$ chmod +x *'.
   
-  " />
-	
-  
-  <Card headline="cron, crond, crontab, cronie" 
-  
-  text="
+  "
+	/>
+
+	<Card
+		headline="cron, crond, crontab, cronie"
+		text="
   See here for an crontab-overview: <p class='text-orange-600	 inline' >
   <a  href='https://serverfault.com/questions/449651/why-is-my-crontab-not-working-and-how-can-i-troubleshoot-it'>serverfault_crontab</a></p>.
   <br><br>
@@ -160,73 +222,76 @@ mx-auto px-2
   When nothing works and the start or enable-command give you this:
   'Unit cron.service not found.'. Then this helped me in the end:
   <br><br>
-  'which crontab' 
+  'which crontab' (shows if cronie is installed)
   <br> 
   'sudo systemctl enable crond.service'
   <br>
   'sudo systemctl start crond.service'
 
   
-  " />
-	
-  
-  
-  <Card headline="Mistake - actually completely different cases..." 
-  
-  
-  text="
-  Installing software manually - There are two ways to install software on a 
+  "
+	/>
+
+	<Card
+		headline="Installing software if the package-manager has no repo for it"
+		text="
+    
+  There are two ways to install software on a 
   linux system when the package manager(PM) does not 
   show a available repository:
   <br><br>
-  1. Add the repository to the PM and install it with the PM.
+  1. Add the repository to the package-manager locally and then install it with the package-manager.
   <br>
-  2. Download the installation-file and extract it. Then run the installation-file.
-  <br><br>" 
-  
-  
-  />
-	
-  
-  
-  <Card headline="Print PATH" 
-  text="echo $PATH
+  2. Download the file from the software-repo directly and extract it. Then run the installation-file.
+  <br><br>"
+	/>
+
+	<Card
+		headline="Print PATH"
+		text="echo $PATH
   <br><br>
   
-  " />
-	<Card headline="mariaDB" 
-  text="
+  "
+	/>
+	<Card
+		headline="mariaDB"
+		text="
   It is important to install mariadb105, the connector and the server as well.
   <br>
   <br>
-  if you forget the server, you get this error-message:
+  If you forget the server, you get this error-message:
   'ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)'
   <br><br>  
-  Starting the mariaDB-service with systemd:
+  1. Starting the mariaDB-service with systemctl
+  <br>
+  2. First login into mariaDB after installation via root
+  <br> 
+  3. Check for existing users and passwords
+  <br>
+  4. Set the password for your user mysql
+  <br>
+    5. Reload the grant tables  
   <br><br>
-  'sudo systemctl start mariadb.service'.
-  <br><br>
-  First login into mariaDB after installation via root:
-  <br><br>
-  'sudo mysql -u root'.
-  <br><br> 
-  You can check for users with 
-  'SELECT user,host,password FROM mysql.user;'
-  <br><br>
-  Then set the password for your mysql user with 
-  'ALTER USER 'mysql'@'localhost' IDENTIFIED BY 'NewPassword';'.
-  And reload the grant tables with 
-  'FLUSH PRIVILEGES;'.
+  1. 'sudo systemctl start mariadb.service'.
+  <br>
+  2. 'sudo mysql -u root'.
+  <br>
+  3. 'SELECT user,password FROM mysql.user;'
+  <br>
+  4. 'ALTER USER 'mysql'@'localhost' IDENTIFIED BY 'NewPassword';'.
+  <br> 
+  5. 'FLUSH PRIVILEGES;'.
 <br><br>
 Now you can login with the mysql user and your new password.
 
 
 
 
-" />
-	<Card headline="mysql/mariaDB getting started"
-  
-   text="After the installation you can 
+"
+	/>
+	<Card
+		headline="mysql/mariaDB getting started"
+		text="After the installation you can 
    1. show all DBs, 
    2. create a new DB, 
    3. use a DB, 
@@ -278,19 +343,20 @@ VALUES ('ex_title', 'ex_text', 'todo');</td>
   </tbody>
 </table>
    
-   " />
+   "
+	/>
 
-
-
-	<Card headline="Running processes" 
-  text="List all running processes with 'ps -e' or 'ps -A'. 
+	<Card
+		headline="Running processes"
+		text="List all running processes with 'ps -e' or 'ps -A'. 
   'ps -ax' ergibt eine List mit längeren Namen??
   You can search the proces list for specific results with 'ps ax | grep mysql'.
-  " />
+  "
+	/>
 
-	<Card headline="search dnf for available packages"
-  
-   text="The command 'dnf list' will give you all 
+	<Card
+		headline="search dnf for available packages"
+		text="The command 'dnf list' will give you all 
    available packages. These results you can filter 
    for specific terms (for example mariadb) by 
    running 'dnf list | grep mariadb'
@@ -302,11 +368,12 @@ VALUES ('ex_title', 'ex_text', 'todo');</td>
    For exact matches in searching you can use 
    'dnf list installed mariadb105'
    
-   " />
+   "
+	/>
 
-	<Card headline="Adding a software-repository to the package manager manually" 
-  
-  text="In the beginning the software-search with 'dnf list jenkins*' 
+	<Card
+		headline="Adding a software-repository to the package manager manually"
+		text="In the beginning the software-search with 'dnf list jenkins*' 
    shows no result. There is no jenkins-repository known to the package manager.
    So the first step is to add the repository manually to '/etc/yum.repos.d' via 
    the command 'sudo wget -O /etc/yum.repos.d/jenkins.repo \
@@ -316,7 +383,8 @@ VALUES ('ex_title', 'ex_text', 'todo');</td>
    'sudo dnf install jenkins'.
 
 
-" />
+"
+	/>
 
 	<Card
 		headline="Installing software manually when it is not available with the software package manager"
@@ -668,8 +736,9 @@ electronics:</p>
 	<Card headline="Belgium" text="test text" />
 	<Card headline="Krakow, Poland" text="test text" />
 
-
-	<Card headline="Warsaw, Poland" text="Some time in the second half of 2019
+	<Card
+		headline="Warsaw, Poland"
+		text="Some time in the second half of 2019
   (found the ticket, it was on 13.09.2019)
   I decided to take a Flixbus from Berlin to Warsaw for 
   a solo-weekendtrip. I wanted to try out 'Couchsurfing' 
@@ -731,5 +800,6 @@ The tours meet (of course) at the column. Then we went around the old town and n
 
 
 
-  " />
+  "
+	/>
 </div>
