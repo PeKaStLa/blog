@@ -11,7 +11,7 @@
             rounded-md text-black  border-white
  "
 	>
-		Peters' Blog - test 28.06. test3
+		Peters' Blog - 29.06.
 	</h1>
 
 	<div
@@ -55,11 +55,12 @@ mx-auto px-2
     
  
 
-  <table class=' border-collapse border-separate border-spacing-4 border border-slate-600  table-auto '>
+  <table class=' border-collapse border-separate border-spacing-4 
+  border border-slate-600  table-auto rounded-md '>
     <thead>
       <tr>
         <th class='border border-slate-600 p-2'>task</th>
-        <th class='border border-slate-600 p-2'>SQL</th>
+        <th class='border border-slate-600 p-2'>command</th>
       </tr>
     </thead>
     <tbody>
@@ -92,17 +93,17 @@ mx-auto px-2
 		headline="Ansible - using RSA key to ping managed node"
 		text="
   
-  When your AWS-instance has a RSA-key assigned, 
-  you can also connect to Ansible with this RSA-key using:
+  If your AWS-instance has a RSA-key assigned, 
+  you can also connect to Ansible with this RSA-key using '--key-file':
   <br><br>
-  ansible all -m ping -u ubuntu --key-file '~/.ssh/key_name.pem'
+  ansible all -m ping --key-file '~/.ssh/key_name.pem'
   <br><br>
-  without the '--key-file' using 
+  Without the '--key-file' using 
   'ansible all -m ping -u ubuntu -i '~/.ssh/terraform_3.pem' 
   you would get this error:
-  <br><br>
+  <br>  <br>
   
-  <br>[WARNING]:  * Failed to parse /home/ec2-user/.ssh/terraform_3.pem with ini plugin:
+  [WARNING]:  * Failed to parse /home/ec2-user/.ssh/terraform_3.pem with ini plugin:
 /home/ec2-user/.ssh/terraform_3.pem:1: Expected key=value host variable assignment,
 got: RSA
 <br>[WARNING]: Unable to parse /home/ec2-user/.ssh/terraform_3.pem as an inventory
@@ -120,7 +121,7 @@ implicit localhost does not match 'all'
   If 'terraform output' gives you an 'instance_public_ip' inside of the output like this:
   (quotes are written out so this JS-site can be displayed correctly)
   <br><br>
-  $ terraform output<br>
+
 instance_id = 'i-03924bae54990efad'<br>
 instance_public_ip = (quote) 18.197.126.124 (quote)<br>
 route53_zone_nameservers = tolist([<br>
@@ -132,9 +133,9 @@ route53_zone_nameservers = tolist([<br>
 
 <br><br>
 
-  you can extract only the IP-adress with following command:<br><br>
-  'terraform output | grep instance_public_ip |  
-  sed -r (quote) s/.*?([\(quote)'])(.*)\1.*/\2/(quote)'.
+  You can extract only the IP-adress with following command:<br><br>
+  terraform output | grep instance_public_ip |  
+  sed -r (quote) s/.*?([\(quote)'])(.*)\1.*/\2/(quote)
   
   
   "
@@ -147,8 +148,8 @@ route53_zone_nameservers = tolist([<br>
   With 'dnf --installed list' you get a list of all installed packages.
   But you also get pre-installed packages which you can 
   identify by the @System in the 3rd column.
-  To filter for manually installed packages only you can use 
-  'dnf --installed list | grep @amazonlinux'
+  To filter for manually installed packages only you can use: <br><br>
+  dnf --installed list | grep @amazonlinux
   
   
    "
@@ -308,17 +309,9 @@ Now you can login with the mysql user and your new password.
 	<Card
 		headline="mysql/mariaDB getting started"
 		text="After the installation you can 
-   1. show all DBs, 
-   2. create a new DB, 
-   3. use a DB, 
-   4. create a table, 
-   5. add a record, 
-   6. delete a record, 
-   7. show all tables on the DB, 
-   8. show all records of one table :
 <br>
 <br>
-   <table class=' border-collapse border-separate border-spacing-4 border border-slate-600  table-auto '>
+   <table class=' rounded-md border-collapse border-separate border-spacing-4 border border-slate-600  table-auto '>
   <thead>
     <tr>
       <th class='border border-slate-600 p-2'>task</th>
@@ -326,6 +319,15 @@ Now you can login with the mysql user and your new password.
     </tr>
   </thead>
   <tbody>
+    <tr >
+      <td class='border border-slate-600 p-2' >show all DBs</td>
+      <td class='border border-slate-600 p-2' >show databases;</td>
+    </tr>
+    <tr >
+      <td class='border border-slate-600 p-2' >create a DB</td>
+      <td class='border border-slate-600 p-2' >CREATE DATABASE dev;
+      </td>
+    </tr>
     <tr >
       <td class='border border-slate-600 p-2' >use a DB</td>
       <td class='border border-slate-600 p-2' >use dev;</td>
@@ -547,28 +549,26 @@ Even in case we did not check for the process-ID before.
 
 	<Card
 		headline="(AWS) Hosting multiple Web-Apps in one EC2-Instance with Nginx"
-		text="When you buy a domain, set up an EC2-Server and deploy a Web-App on Port 80 - then that's it. The server is used and seems full.
+		text="
+    When you buy a domain, set up an EC2-Server and deploy a Web-App on Port 80 - then that's it. The server is used and seems full.
     But what if you want to host more than one Application? Do you need to pay for a second EC2-machine? One server and one domain for every project?
-    With a webserver-software like 'nginx' it's possible to host multiple apps on different sub-domains on one single server. 
-    ...
-    Also I want to seperate the different nginx.config-snippets into 
-    seperate files so that I can edit them easier for CD without any 
-    downtime.
+    <br><br>
+    With a webserver like 'nginx' it's possible to host multiple apps on different sub-domains on one single server. 
+    You can also seperate the nginx.config-snippets into seperate files for better editing.
     "
 	/>
-	<Image src="pangolin_2.png" alt="pangolin_2" />
 
 	<Card
 		headline="(AWS) Adding a new Hosted Zone after deleting the domains' original Hosted Zone "
 		text="When you buy a domain at AWS your first hosted zone gets generated automatically. Later I deleted this hosted zone to save some money on AWS-fees during a long travel. After coming home from the vacation I didn't remember much about the orignal hosted zone. I just created a new hosted zone and added the records for simple routing to the www-domain and the short domain-name. After starting the EC2-Server and installing nginx - there was nothing to see on my domain. So I tried reaching my public-IP. Luckily there I could see the 'Welcome to nginx!'-Page. So where is the error in this? After some searching I found out that the nameservers of the new hosted zone are different to the ones of the domain. I copied all of the four nameservers from the hosted zone and pasted them into the records of the domain. Instead of the notified 24 hours it just took 2 or 3 minutes to apply the changes. Now everything worked as it should. The domain and the public-IP showed the same page."
-		items="
-      
-      "
+
 	/>
 	<Image src="pangolin.png" alt="pangolin" />
+	<Image src="pangolin_2.png" alt="pangolin_2" />
+
 	<Card
 		headline="How to travel with a 20-liter backpack (for 7 months or more)"
-		text="First things first. Most important during the whole trip is the backpack itself. I used the cheap but robust 'Arpenaz NH100 20 L' from Decathlon. Unlike many other cheap bagpacks it still looks good after 5 months.
+		text="First things first. Most important during the whole trip is the backpack itself. I used the cheap but robust 'Arpenaz NH100 20 L' from Decathlon.
         What else do you need? Most important is to not pack too much. Ask yourself 'What is the worst that can happen, if I don't have it with me?'
         If it is not too bad, then do not pack it.
       
@@ -731,6 +731,7 @@ electronics:</p>
       "
 	/>
 
+	<!--
 	<Card headline="Cambodia 05/2023" text="test text" />
 	<Card headline="Vietnam 04 & 05/2023" text="test text" />
 	<Card headline="Laos" text="test text" />
@@ -818,4 +819,6 @@ The tours meet (of course) at the column. Then we went around the old town and n
 
   "
 	/>
+
+  -->
 </div>
