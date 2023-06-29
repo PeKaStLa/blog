@@ -66,23 +66,23 @@ mx-auto px-2
     <tbody>
       <tr >
         <td class='border border-slate-600 p-2' >Dont use inventory but use specific IP given as Paramter with '-i' and the comma after the IP(!!) </td>
-        <td class='border border-slate-600 p-2' >ansible-playbook install_copy_start_nginx.yml --key-file '~/.ssh/terraform_3.pem' -i 3.120.246.200, --become</td>
+        <td class='border border-slate-600 p-2' >ansible-playbook install_config_start_nginx.yml -i 3.120.246.200, --become</td>
       </tr>
         <tr >
-        <td class='border border-slate-600 p-2' >for installing use '--become' to get superuser-permissions</td>
-        <td class='border border-slate-600 p-2' >ansible-playbook config_nginx.yml --key-file '~/.ssh/terraform_3.pem' --become</td>
+        <td class='border border-slate-600 p-2' >for installations use '--become' to get superuser-permissions</td>
+        <td class='border border-slate-600 p-2' >ansible-playbook config_nginx.yml  --become</td>
       </tr>
         <tr >
-        <td class='border border-slate-600 p-2' >run playbook on all nodes</td>
-        <td class='border border-slate-600 p-2' >ansible-playbook ansible_playbooks/mytask.yml --key-file '~/.ssh/terraform_3.pem'</td>
+        <td class='border border-slate-600 p-2' >run playbook on all nodes and use specific private-key</td>
+        <td class='border border-slate-600 p-2' >ansible-playbook mytask.yml --key-file '~/.ssh/terraform_3.pem'</td>
       </tr>
         <tr >
         <td class='border border-slate-600 p-2' >execute command on all nodes</td>
-        <td class='border border-slate-600 p-2' >ansible all  --key-file '~/.ssh/terraform_3.pem' -a '/bin/echo hello'</td>
+        <td class='border border-slate-600 p-2' >ansible all -a '/bin/echo hello'</td>
       </tr>
       <tr>
-        <td class='border border-slate-600 p-2' >Ping all nodes and use user ubuntu</td>
-        <td class='border border-slate-600 p-2' >ansible all -m ping -u ubuntu --key-file '~/.ssh/terraform_3.pem'</td>
+        <td class='border border-slate-600 p-2' >Ping all nodes as user ubuntu</td>
+        <td class='border border-slate-600 p-2' >ansible all -m ping -u ubuntu</td>
       </tr>
     </tbody>
   </table>
@@ -90,22 +90,20 @@ mx-auto px-2
 	/>
 
 	<Card
-		headline="Ansible - using RSA key to ping managed node"
+		headline="Ansible & AWS - using RSA key to connect to managed node"
 		text="
   
   If your AWS-instance has a RSA-key assigned, 
   you can also connect to Ansible with this RSA-key using '--key-file':
   <br><br>
-  ansible all -m ping --key-file '~/.ssh/key_name.pem'
+  &emsp; ansible all -m ping --key-file '~/.ssh/key_name.pem'
   <br><br>
   Without the '--key-file' using 
   'ansible all -m ping -u ubuntu -i '~/.ssh/terraform_3.pem' 
   you would get this error:
   <br>  <br>
   
-  [WARNING]:  * Failed to parse /home/ec2-user/.ssh/terraform_3.pem with ini plugin:
-/home/ec2-user/.ssh/terraform_3.pem:1: Expected key=value host variable assignment,
-got: RSA
+  [WARNING]:  * Failed to parse /home/ec2-user/.ssh/terraform_3.pem with ini plugin: /home/ec2-user/.ssh/terraform_3.pem:1: Expected key=value host variable assignment, got: RSA
 <br>[WARNING]: Unable to parse /home/ec2-user/.ssh/terraform_3.pem as an inventory
 source
 <br>[WARNING]: No inventory was parsed, only implicit localhost is available
@@ -158,6 +156,61 @@ route53_zone_nameservers = tolist([<br>
 	<Card
 		headline="Terraform CLI"
 		text="
+
+
+
+    <table class=' border-collapse border-separate border-spacing-4 
+  border border-slate-600  table-auto rounded-md '>
+    <thead>
+      <tr>
+        <th class='border border-slate-600 p-2'>task</th>
+        <th class='border border-slate-600 p-2'>command</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td class='border border-slate-600 p-2' >Echo the output of the last applied config.tf</td>
+        <td class='border border-slate-600 p-2' >terraform output</td>
+      </tr>
+        <tr >
+        <td class='border border-slate-600 p-2' >overwrite a variable in the apply-command</td>
+        <td class='border border-slate-600 p-2' >terraform apply -var 'instance_name=YetAnotherName'</td>
+      </tr>
+        <tr >
+        <td class='border border-slate-600 p-2' >destroy the last applied config</td>
+        <td class='border border-slate-600 p-2' >terraform destroy</td>
+      </tr>
+        <tr >
+        <td class='border border-slate-600 p-2' >show content of 'terraform.tfstate' of the currently applied config</td>
+        <td class='border border-slate-600 p-2' >terraform show or less terraform.tfstate</td>
+      </tr>
+  
+      <tr>
+        <td class='border border-slate-600 p-2' >Create the infrastructure of the current config</td>
+        <td class='border border-slate-600 p-2' >terraform apply</td>
+      </tr>
+      <tr>
+        <td class='border border-slate-600 p-2' >validate the config</td>
+        <td class='border border-slate-600 p-2' >terraform validate</td>
+      </tr>
+      <tr>
+        <td class='border border-slate-600 p-2' >format the config file</td>
+        <td class='border border-slate-600 p-2' >terraform fmt</td>
+      </tr>
+      <tr>
+        <td class='border border-slate-600 p-2' >show the plan according to the config-file</td>
+        <td class='border border-slate-600 p-2' >terraform plan</td>
+      </tr>
+      <tr>
+        <td class='border border-slate-600 p-2' >initialise the terraform directory</td>
+        <td class='border border-slate-600 p-2' >terraform init</td>
+      </tr>
+      <tr>
+        <td class='border border-slate-600 p-2' >see if terraform is installed + version</td>
+        <td class='border border-slate-600 p-2' >terraform -v</td>
+      </tr>
+    </tbody>
+  </table>
 
   <br>terraform output
   <br>
