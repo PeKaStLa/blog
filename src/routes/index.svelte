@@ -52,23 +52,39 @@ mx-auto px-2
 	<Card
 		headline="Ansible commands"
 		text="
-    5. Dont use inventory but use the IP given as Paramter
-    <br>4. copy file to managed node
-    <br>3. run playbook on all nodes 
-    <br>2. execute command on all nodes
-    <br>1. Ping all nodes and use user ubuntu
-
-<br>
-
-  <br><br>5. ansible-playbook install_copy_start_nginx.yml --key-file '~/.ssh/terraform_3.pem' -i 3.120.246.200, --become
-  <br><br>4. ansible-playbook config_nginx.yml --key-file '~/.ssh/terraform_3.pem' --become
-  <br><br>3. ansible-playbook ansible_playbooks/mytask.yml --key-file '~/.ssh/terraform_3.pem'
-  <br><br>2. ansible all  --key-file '~/.ssh/terraform_3.pem' -a '/bin/echo hello'
-  <br><br>1. ansible all -m ping -u ubuntu --key-file '~/.ssh/terraform_3.pem'
-
+    
  
 
-
+  <table class=' border-collapse border-separate border-spacing-4 border border-slate-600  table-auto '>
+    <thead>
+      <tr>
+        <th class='border border-slate-600 p-2'>task</th>
+        <th class='border border-slate-600 p-2'>SQL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td class='border border-slate-600 p-2' >Dont use inventory but use specific IP given as Paramter with '-i' and the comma after the IP(!!) </td>
+        <td class='border border-slate-600 p-2' >ansible-playbook install_copy_start_nginx.yml --key-file '~/.ssh/terraform_3.pem' -i 3.120.246.200, --become</td>
+      </tr>
+        <tr >
+        <td class='border border-slate-600 p-2' >for installing use '--become' to get superuser-permissions</td>
+        <td class='border border-slate-600 p-2' >ansible-playbook config_nginx.yml --key-file '~/.ssh/terraform_3.pem' --become</td>
+      </tr>
+        <tr >
+        <td class='border border-slate-600 p-2' >run playbook on all nodes</td>
+        <td class='border border-slate-600 p-2' >ansible-playbook ansible_playbooks/mytask.yml --key-file '~/.ssh/terraform_3.pem'</td>
+      </tr>
+        <tr >
+        <td class='border border-slate-600 p-2' >execute command on all nodes</td>
+        <td class='border border-slate-600 p-2' >ansible all  --key-file '~/.ssh/terraform_3.pem' -a '/bin/echo hello'</td>
+      </tr>
+      <tr>
+        <td class='border border-slate-600 p-2' >Ping all nodes and use user ubuntu</td>
+        <td class='border border-slate-600 p-2' >ansible all -m ping -u ubuntu --key-file '~/.ssh/terraform_3.pem'</td>
+      </tr>
+    </tbody>
+  </table>
   "
 	/>
 
