@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Image from './image.svelte';
 	import Card from './card.svelte';
+	import Layout from './__layout.svelte';
 </script>
 
 <div class=" text-center  ">
@@ -527,6 +528,15 @@ second unzip it with tar:
      session_created: Thu Jun 29 13:28:52 2023 | 
      session_activity: Thu Jun 29 13:31:22 2023 
      
+
+     <br><br>
+     tmux ls -F 'session_name: #{session_name} |||| pane_pid: #{pane_pid}' | grep blog | awk -F'[: ]+' '{print $NF}'
+
+
+     <br><br>
+     -> filters the output for session name 'blog' and omnly outputs the last number:
+     <br>
+     = 414018
      "
 	/>
 
