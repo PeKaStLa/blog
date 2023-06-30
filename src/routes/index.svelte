@@ -524,6 +524,23 @@ second unzip it with tar:
         </tr>
       </thead>
       <tbody>
+         <tr >
+          <td class='border border-slate-600 p-2' >tmux new-session -d -s SessionName</td>
+          <td class='border border-slate-600 p-2' >create a new session</td>
+        </tr>
+         <tr >
+          <td class='border border-slate-600 p-2' >tmux send -t SessionName 'PORT=3010 node ~/repo/build/index.js' ENTER</td>
+          <td class='border border-slate-600 p-2' >send a command to the session</td>
+        </tr>
+         <tr >
+          <td class='border border-slate-600 p-2' >tmux -L session-name</td>
+          <td class='border border-slate-600 p-2' >connects to session</td>
+        </tr>
+        <tr >
+          <td class='border border-slate-600 p-2' >tmux ls</td>
+          <td class='border border-slate-600 p-2' >blog: 1 windows (created Thu Jun 29 14:10:01 2023)
+         <br>fewo: 1 windows (created Thu Jun 29 13:30:01 2023)</td>
+        </tr>
         <tr >
           <td class='border border-slate-600 p-2' > tmux ls -F 'session_name: #&#123;session_name&#125; | pane_pid: #&#123;pane_pid&#125;' | grep blog | awk -F'[: ]+' '&#123;print $NF&#125;'</td>
           <td class='border border-slate-600 p-2' >414018</td>
@@ -537,24 +554,7 @@ second unzip it with tar:
             session_created: Thu Jun 29 13:28:52 2023 | 
             session_activity: Thu Jun 29 13:31:22 2023</td>
         </tr>
-        <tr >
-          <td class='border border-slate-600 p-2' >tmux ls</td>
-          <td class='border border-slate-600 p-2' >blog: 1 windows (created Thu Jun 29 14:10:01 2023)
-         <br>fewo: 1 windows (created Thu Jun 29 13:30:01 2023)</td>
-        </tr>
-        <tr >
-          <td class='border border-slate-600 p-2' >tmux -L session-name</td>
-          <td class='border border-slate-600 p-2' >connects to session</td>
-        </tr>
-          <tr >
-          <td class='border border-slate-600 p-2' >tmux send -t SessionName 'PORT=3010 node ~/repo/build/index.js' ENTER</td>
-          <td class='border border-slate-600 p-2' >send a command to the session</td>
-        </tr>
-          <tr >
-          <td class='border border-slate-600 p-2' >tmux new-session -d -s SessionName</td>
-          <td class='border border-slate-600 p-2' >create a new session</td>
-        </tr>
-      </tbody>
+       </tbody>
     </table>
 
 
