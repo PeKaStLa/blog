@@ -546,9 +546,13 @@ second unzip it with tar:
           <td class='border border-slate-600 p-2' >tmux -L session-name</td>
           <td class='border border-slate-600 p-2' >connects to session</td>
         </tr>
-        <tr >
-          <td class='border border-slate-600 p-2' ></td>
-          <td class='border border-slate-600 p-2' ></td>
+          <tr >
+          <td class='border border-slate-600 p-2' >tmux send -t SessionName 'PORT=3010 node ~/repo/build/index.js' ENTER</td>
+          <td class='border border-slate-600 p-2' >send a command to the session</td>
+        </tr>
+          <tr >
+          <td class='border border-slate-600 p-2' >tmux new-session -d -s SessionName</td>
+          <td class='border border-slate-600 p-2' >create a new session</td>
         </tr>
       </tbody>
     </table>
