@@ -12,7 +12,7 @@
             rounded-md text-black  border-white
  "
 	>
-		Peters' Blog - 29.06.23 - 22:23
+		Peters' Blog - 01.07.23 - 00:41
 	</h1>
 
 	<div
