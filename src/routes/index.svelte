@@ -508,13 +508,6 @@ second unzip it with tar:
      command with adding 'ENTER' in the command.  
      <br>
      <br> 
-     1. command: 'tmux new-session -d -s blog'
-     <br>
-     2. command: 'tmux send -t blog ''PORT=3006 node ~/blog/build/index.js'' ENTER'
-     <br>
-     <br>
-     3. (additionally:) get tmux-information like socket, sessions, server-IP and session-IPs:
-     <br><br>
 
      <table class=' rounded-md border-collapse border-separate border-spacing-4 border border-slate-600  table-auto '>
       <thead>
