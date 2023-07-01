@@ -12,7 +12,7 @@
             rounded-md text-black  border-white
  "
 	>
-		Peters' Blog - 01.07.23 - 00:41
+		Peters' Blog - 01.07.23 - 12:13
 	</h1>
 
 	<div
@@ -533,6 +533,10 @@ second unzip it with tar:
           <td class='border border-slate-600 p-2' >tmux ls</td>
           <td class='border border-slate-600 p-2' >blog: 1 windows (created Thu Jun 29 14:10:01 2023)
          <br>fewo: 1 windows (created Thu Jun 29 13:30:01 2023)</td>
+        </tr>
+         <tr >
+          <td class='border border-slate-600 p-2' >tmux ls -f '#{m:blog*,#{session_name}}'</td>
+          <td class='border border-slate-600 p-2' >(filter for session_names starting with blog)</td>
         </tr>
         <tr >
           <td class='border border-slate-600 p-2' > tmux ls -F 'session_name: #&#123;session_name&#125; | pane_pid: #&#123;pane_pid&#125;' | grep blog | awk -F'[: ]+' '&#123;print $NF&#125;'</td>
