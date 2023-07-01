@@ -12,7 +12,7 @@
             rounded-md text-black  border-white
  "
 	>
-		Peters' Blog - 01.07.23 - 14:18
+		Peters' Blog - 01.07.23 - 18:07
 	</h1>
 
 	<div
@@ -48,9 +48,51 @@ mx-auto px-2
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
-	<Card headline="test headline" text="test text" />
-	<Card headline="test headline" text="test text" />
-	<Card
+	
+  
+  <Card headline="change the starting directory of your WSL / Windows-Subsystem for Linux" 
+  
+  text="
+  
+  Open the WSL bash with admin rights.
+  Switch to the /etc folder.
+  Edit the file 'bash.bashrc'
+  At the very end add a line like:
+  <br><br>
+  cd /c/Users/name/Documents/projects
+  <br><br>
+  Dont forget to source the bash-bashrc-file.
+  
+  " />
+	
+  
+  
+  <Card headline="fast-git = fgit"
+  text="
+  When updating a git-repo you normalyy have to run three commands:
+  <br><br>
+  1. git add .
+  <br>2. git commit -m "XXX"
+  <br>3. git push
+  <br><br>
+  Instead you can add a command to .bashrc to execute all three 
+  commands in just one. (Important: $* saves the quotes but prevents 
+  adding more parameters to the git function. You can use $1 instead.)
+  <br><br>
+  function fgit() 
+  {     
+    git add .
+    git commit -a -m "$*"     
+    git push 
+  }
+
+
+  " />
+	
+  
+  
+  
+  <Card
 		headline="Ansible commands"
 		text="
     
