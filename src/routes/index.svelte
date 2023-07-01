@@ -535,7 +535,7 @@ second unzip it with tar:
          <br>fewo: 1 windows (created Thu Jun 29 13:30:01 2023)</td>
         </tr>
          <tr >
-          <td class='border border-slate-600 p-2' >tmux ls -f '#{m:blog*,#{session_name}}'</td>
+          <td class='border border-slate-600 p-2' >tmux ls -f '#&#123;m:blog*,#&#123;session_name&#125;&#125;'</td>
           <td class='border border-slate-600 p-2' >(filter for session_names starting with blog)</td>
         </tr>
         <tr >
