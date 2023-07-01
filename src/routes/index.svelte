@@ -12,7 +12,7 @@
             rounded-md text-black  border-white
  "
 	>
-		Peters' Blog - 01.07.23 - 18:07
+		Peters' Blog - 01.07.23 - 18:19
 	</h1>
 
 	<div
@@ -79,12 +79,13 @@ mx-auto px-2
   commands in just one. (Important: $* saves the quotes but prevents 
   adding more parameters to the git function. You can use $1 instead.)
   <br><br>
-  function fgit() 
-  {     
-    git add .
-    git commit -a -m '$*'     
-    git push 
-  }
+  function fgit() <br>
+  &lbrace;	
+  
+   <br> git add .
+    <br>git commit -a -m '$*'     
+   <br> git push <br>
+  &rbrace;	
 
 
   " />
