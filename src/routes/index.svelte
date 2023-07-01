@@ -12,8 +12,8 @@
             rounded-md text-black  border-white
  "
 	>
-		Peters' Blog - 01.07.23 - 18:27
-    
+		Peters' Blog - 01.07.23 - 18:36
+
 	</h1>
 
 	<div
@@ -63,14 +63,15 @@ mx-auto px-2
   cd /c/Users/name/Documents/projects
   <br><br>
   Dont forget to source the bash-bashrc-file.
-  
+  You can also add own functions for you WSL.
+  Declare them inside bash.bashrc and source the file to use them.
   " />
 	
   
   
   <Card headline="fast-git = fgit"
   text="
-  When updating a git-repo you normalyy have to run three commands:
+  When updating a git-repo you normaly have to run three commands:
   <br><br>
   1. git add .
   <br>2. git commit -m 'XXX'
@@ -88,6 +89,8 @@ mx-auto px-2
    <br> git push <br>
   &rbrace;	
 
+<br><br>
+  Source the .bashrc-file and try your new command 'fgit'.
 
   " />
 	
