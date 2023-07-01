@@ -72,7 +72,7 @@ mx-auto px-2
   When updating a git-repo you normalyy have to run three commands:
   <br><br>
   1. git add .
-  <br>2. git commit -m "XXX"
+  <br>2. git commit -m 'XXX'
   <br>3. git push
   <br><br>
   Instead you can add a command to .bashrc to execute all three 
@@ -82,7 +82,7 @@ mx-auto px-2
   function fgit() 
   {     
     git add .
-    git commit -a -m "$*"     
+    git commit -a -m '$*'     
     git push 
   }
 
