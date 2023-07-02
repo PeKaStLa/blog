@@ -56,9 +56,8 @@
 		const data = await res.json();
 
     if (res.ok) {
-      cards = data.reverse();
-      editing = false;
-      position = cards.length;
+      //cards = data.reverse();
+      //position = cards.length;
       return data;
     } else {
       throw new Error(data);
