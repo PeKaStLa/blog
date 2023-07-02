@@ -1,7 +1,103 @@
 <script lang="ts">
 	import Image from './image.svelte';
 	import Card from './card.svelte';
+	import CardEdit from './card_edit.svelte';
 	import Layout from './__layout.svelte';
+	//import FunctionsSheet from  '../functions.svelte';
+	import { onMount } from 'svelte';
+
+  //import {Functions} from '../functions.js';
+  //import  '../functions.js';
+  //let test = new Functions();
+
+  // Declaration
+  let position;
+
+
+  class CardEntry {
+  title;
+  text;
+  position;
+  constructor(  title, text, position) {
+ this.title = title;
+    this.text = text;
+    this.position = position;
+  }
+}
+
+  async function createEmployee( employee) {    
+      try {
+    console.log("createEmployee is running try");
+    console.log(JSON.stringify(employee));
+        const response = await fetch('http://localhost:8080/cards', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(employee)
+        });
+    
+        if (response.ok) {
+          console.log("createEmployee is running in response.ok");
+          const createdEmployee = await response.json();
+          return createdEmployee;
+        } else {
+          console.log("createEmployee is running in response-not-ok");
+          throw new Error('Failed to create employee');
+        }
+      } catch (error) {
+        console.error('Error creating employee:', error);
+        return null;
+      }
+    }
+
+
+
+
+
+
+	async function GetCards() {
+		const res = await fetch('http://localhost:8080/cards');
+		const data = await res.json();
+
+    if (res.ok) {
+      cards = data.reverse();
+      editing = false;
+      position = cards.length;
+      return data;
+    } else {
+      throw new Error(data);
+    }
+	}
+  
+	
+
+
+
+ 
+
+  
+  const cardentry667 = new CardEntry('77776676677777!! 444 !!!!44444 !!!', 'text test 11', 11);
+  const cardentry66 = new CardEntry('66!! 444 !!!!44444 !!!', 'text test 11', 11);
+  const cardentry55 = new CardEntry('555555555 444 !!!!44444 !!!', 'text test 11', 11);
+  const cardentry44 = new CardEntry('!! 444 !!!!44444 !!!', 'text test 11', 11);
+  const cardentry20 = new CardEntry('title test 202020202020', 'text test 11', 11);
+  const cardentry21 = new CardEntry('title test 21212121212', 'text test 12', 12);
+  const cardentry13 = new CardEntry('title test 13', 'text test 13', 113);
+  const cardentry14 = new CardEntry('title test 11', 'text test 11', 121);
+  const cardentry15 = new CardEntry('title test 15555', 'text test 15555', 1555);
+  const cardentry16 = new CardEntry('title test 13', 'text test 13', 134);
+  const cardentry17 = new CardEntry('title test 177777', 'text test 11', 115);
+  const cardentry18 = new CardEntry('title test 1888888', 'text test 12', 126);
+  const cardentry19 = new CardEntry('title test 19999999', 'text test 13', 137);
+  const cardentry33 = new CardEntry('title test 765433333333333333', 'text test 13', 137);
+ 
+  let cards = [];
+  let cardsPromise = GetCards();
+let editing;
+	onMount(async () => {
+    
+	});
 </script>
 
 <div class=" text-center  ">
@@ -12,8 +108,7 @@
             rounded-md text-black  border-white
  "
 	>
-		Peters' Blog - 02.07.23 - 09:56
-
+		Peters' Blog - 02.07.23 - 19 uhr
 	</h1>
 
 	<div
@@ -42,6 +137,34 @@ mx-auto px-2
 		<br />
 		<p>This site is under construction permanently.</p>
 	</div>
+  <CardEdit position={position}   />
+
+	<button
+		on:click={() => {createEmployee(cardentry667); cardsPromise = GetCards();}}
+		class="
+    shadow-md hover:shadow-lg 
+     text-lg m-4 p-4
+     
+     bg-blue-500 hover:bg-blue-700 
+     text-white font-bold  rounded
+     ">Add Entry +</button
+	>
+
+
+  <!-- 
+	{#await cardsPromise}
+  <p>loading</p>
+  {:then items}
+  -->
+  editing: {editing}
+    {#each cards as item}
+	<Card bind:editing={editing} headline="{item.title}" text="{item.text}" />
+    {/each}
+  <!-- {:catch error}
+    <p style="color: red">{error.message}</p> 
+  {/await}-->
+  
+
 
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
@@ -49,11 +172,10 @@ mx-auto px-2
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
-	
-  
-  <Card headline="change the starting directory of your WSL / Windows-Subsystem for Linux" 
-  
-  text="
+
+	<Card
+		headline="change the starting directory of your WSL / Windows-Subsystem for Linux"
+		text="
   
   Open the WSL bash with admin rights.
   Switch to the /etc folder.
@@ -65,12 +187,12 @@ mx-auto px-2
   Dont forget to source the bash-bashrc-file.
   You can also add own functions for you WSL.
   Declare them inside bash.bashrc and source the file to use them.
-  " />
-	
-  
-  
-  <Card headline="fast-git = fgit"
-  text="
+  "
+	/>
+
+	<Card
+		headline="fast-git = fgit"
+		text="
   When updating a git-repo you normaly have to run three commands:
   <br><br>
   1. git add .
@@ -92,12 +214,10 @@ mx-auto px-2
 <br><br>
   Source the .bashrc-file and try your new command 'fgit'.
 
-  " />
-	
-  
-  
-  
-  <Card
+  "
+	/>
+
+	<Card
 		headline="Ansible commands"
 		text="
     
@@ -179,7 +299,7 @@ route53_zone_nameservers = tolist([<br>
 
   You can extract only the IP-adress with following command:<br><br>
   &emsp; terraform output | grep instance_public_ip |  
-  sed -r &quot; s/.*?([\&quot;'])(.*)\1.*/\2/&quot;
+  sed -r &quot; s/.*?([\&quot;'])(.*)\ 1.*/\ 2/&quot;
   
   
   "
