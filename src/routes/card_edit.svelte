@@ -5,8 +5,8 @@
    // export let text;
    export let title = "";
     export let text = "";
-    export let id;
-    export let position;
+    export let id = false;
+    export let position = false;
      export let edit_is_visible;
      let changing;
      let title_change;
@@ -29,33 +29,34 @@ let new_text;
 }
 
 
-async function createEmployee( employee) {    
+
+async function createCard(card) {    
       try {
-    console.log("createEmployee is running try");
-    console.log(JSON.stringify(employee));
+    console.log("createCard is running try");
+    console.log(JSON.stringify(card));
         const response = await fetch('http://localhost:8080/cards', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(employee)
+          body: JSON.stringify(card)
         });
     
         if (response.ok) {
-          console.log("createEmployee is running in response.ok");
-          const createdEmployee = await response.json();
-          return createdEmployee;
+          console.log("createCard is running in response.ok");
+          const createdCard = await response.json();
+          return createdCard;
         } else {
-          console.log("createEmployee is running in response-not-ok");
-          throw new Error('Failed to create employee');
+          console.log("createCard is running in response-not-ok");
+          throw new Error('Failed to create card');
         }
       } catch (error) {
-        console.error('Error creating employee:', error);
+        console.error('Error creating card:', error);
         return null;
       }
     }
 
-    async function editCard( card) {    
+    async function editCard(card) {    
       try {
     console.log("editCard is running try");
     console.log(JSON.stringify(card));
@@ -73,10 +74,10 @@ async function createEmployee( employee) {
           return editedCard;
         } else {
           console.log("editCard is running in response-not-ok");
-          throw new Error('Failed to create card');
+          throw new Error('Failed to edit card');
         }
       } catch (error) {
-        console.error('Error creating card:', error);
+        console.error('Error editing card:', error);
         return null;
       }
     }
@@ -107,9 +108,10 @@ pb-12
   ">
   title change {title_change}<br>
   title change {text_change}<br>
+  position {position}<br>
 
   {#if edit_is_visible==true }
-  window 1
+  window 1 create new card
   <input class="my-2  rounded w-full text-2xl p-1" type="text" 
   placeholder="Enter your title here" bind:value={title} />
   <br>
@@ -118,7 +120,7 @@ pb-12
 <br>
   
 	<button
-  on:click={() => {createEmployee(new CardEntry(title, text, 123)); /* cardsPromise = GetCards();**/ title = text = ""; edit_is_visible = false;}}
+  on:click={() => {createCard(new CardEntry(title, text, 123)); /* cardsPromise = GetCards();**/ title = text = ""; edit_is_visible = false;}}
   class="
   shadow-md hover:shadow-lg 
    text-lg p-2
@@ -128,7 +130,7 @@ pb-12
    ">Eintrag speichern </button>
 
    {:else if changing ==true}
-window 2
+window 2 edit/change exisiting card
    <input class="my-2  rounded w-full text-2xl p-1" type="text" 
    placeholder="Enter your title here" bind:value={title_change} />
    <br>
@@ -145,7 +147,7 @@ shadow-md hover:shadow-lg
  text-white font-bold  rounded
  ">save/edit card</button> 
   {:else }
-  window 3
+  window 3 display values of finished card
     <p class="text-2xl lg:text-3xl  text-center ">
         {title}
     </p>

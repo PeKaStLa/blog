@@ -139,7 +139,7 @@ mx-auto px-2
   -->
 	edit_is_visible: {edit_is_visible}
 	{#each cards as item}
-		<CardEdit edit_is_visible="false;" title={item.title} text={item.text} id={item.id}/>
+		<CardEdit edit_is_visible="false;" title={item.title} position={item.position} text={item.text} id={item.id}/>
 	{/each}
 	<!-- {:catch error}
     <p style="color: red">{error.message}</p> 
