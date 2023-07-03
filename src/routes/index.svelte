@@ -85,7 +85,7 @@
             rounded-md text-black  border-white
  "
 	>
-		Peters' Blog - test fgit
+		Peters' Blog - test fgit2
 	</h1>
 
 	<div
