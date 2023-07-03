@@ -175,7 +175,7 @@ mx-auto px-2
   When updating a git-repo you normaly have to run three commands:
   <br><br>
   1. git add .
-  <br>2. git commit -m 'XXX'
+  <br>2. git commit -m &quot;XXX&quot;  
   <br>3. git push
   <br><br>
   Instead you can add a command to .bashrc to execute all three 
@@ -186,12 +186,13 @@ mx-auto px-2
   &lbrace;	
   
    <br> git add .
-    <br>git commit -a -m '$*'     
+    <br>git commit -a -m &quot;$*&quot;     
    <br> git push <br>
   &rbrace;	
 
 <br><br>
-  Source the .bashrc-file and try your new command 'fgit'.
+  Source the .bashrc-file and try your new command 'fgit'.<br><br>
+  (Note: it is important to put double quotes and not just single quotes like this: '$*'. Otherwise your commit-messages will be Dollar-Star / $* all the time.)
 
   "
 	/>
