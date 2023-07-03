@@ -61,7 +61,7 @@ shadow-md hover:shadow-lg
 -->
 
 <button
-on:click={() => { editing2 = false;}}
+on:click={() => {}}
 class="
 shadow-md hover:shadow-lg 
 text-lg p-1
