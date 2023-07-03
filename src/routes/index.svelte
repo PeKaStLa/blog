@@ -27,7 +27,7 @@
 
 	let cards = [];
 	$: !edit_is_visible && GetCards();
-	let cardsPromise = GetCards();
+	//let cardsPromise = GetCards();
 	const cardentryx = new CardEntry('xxxxxx   ', 'text test 11', 11);
 
 	
@@ -139,7 +139,7 @@ mx-auto px-2
   -->
 	edit_is_visible: {edit_is_visible}
 	{#each cards as item}
-		<CardEdit edit_is_visible="false;" title={item.title} text={item.text} />
+		<CardEdit edit_is_visible="false;" title={item.title} text={item.text} id={item.id}/>
 	{/each}
 	<!-- {:catch error}
     <p style="color: red">{error.message}</p> 

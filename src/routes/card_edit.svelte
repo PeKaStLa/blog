@@ -5,7 +5,8 @@
    // export let text;
    export let title = "";
     export let text = "";
-     export let position;
+    export let id;
+    export let position;
      export let edit_is_visible;
      let changing;
      let title_change;
@@ -28,7 +29,7 @@ let new_text;
 }
 
 
-     async function createEmployee( employee) {    
+async function createEmployee( employee) {    
       try {
     console.log("createEmployee is running try");
     console.log(JSON.stringify(employee));
@@ -53,6 +54,37 @@ let new_text;
         return null;
       }
     }
+
+    async function editCard( card) {    
+      try {
+    console.log("editCard is running try");
+    console.log(JSON.stringify(card));
+        const response = await fetch('http://localhost:8080/cards/'+id, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(card)
+        });
+    
+        if (response.ok) {
+          console.log("editCard is running in response.ok");
+          const editedCard = await response.json();
+          return editedCard;
+        } else {
+          console.log("editCard is running in response-not-ok");
+          throw new Error('Failed to create card');
+        }
+      } catch (error) {
+        console.error('Error creating card:', error);
+        return null;
+      }
+    }
+
+
+
+
+
    
     
     </script>
@@ -98,20 +130,20 @@ pb-12
    {:else if changing ==true}
 window 2
    <input class="my-2  rounded w-full text-2xl p-1" type="text" 
-   placeholder="Enter your title here" value={title_change} />
+   placeholder="Enter your title here" bind:value={title_change} />
    <br>
    <textarea rows="5" class="my-2 rounded w-full text-lg p-1"  
-   placeholder="Enter your text here"  value={text_change} />
+   placeholder="Enter your text here"  bind:value={text_change} />
  <br>
 
-   <button on:click={() => {changing=false; }} 
+   <button on:click={() => {editCard(new CardEntry(title_change, text_change, 123)); changing=false; }} 
     class="
 shadow-md hover:shadow-lg 
  text-lg p-1
  absolute  bottom-2 right-2
   bg-red-500 hover:bg-blue-700 
  text-white font-bold  rounded
- ">save/close edit</button> 
+ ">save/edit card</button> 
   {:else }
   window 3
     <p class="text-2xl lg:text-3xl  text-center ">
