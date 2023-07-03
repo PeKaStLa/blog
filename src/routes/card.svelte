@@ -3,19 +3,20 @@
 
     export let headline;
     export let text;
-    export let editing;
-    let editing2 = false;
-   $:  onChange(editing); 
+    //export let editing;
+    //let editing2 = false;
+   //$:  onChange(editing); 
 
     //export let text: string;
     
     // 	import Text from './text.svelte';
     // <Text src={images[counter]} alt={alt} />
     
-   function onChange(editing)
+  /* function onChange(editing)
    {
     !editing ? editing2 = false : "" ;
    }
+   **/
     </script>
 
 <div class=" 
@@ -43,20 +44,22 @@ mx-auto   my-10 p-6
     </p>
 
 
-
+<!--
     {#if (editing == false && editing2 == false) || (editing == true && editing2 == false)  }
-    <button
-    on:click={() => {editing = true; editing2 = true;}}
+-->
+    <button on:click={() => {}} 
     class="
 shadow-md hover:shadow-lg 
  text-lg p-1
  absolute  bottom-2 left-2
   bg-green-500 hover:bg-blue-700 
  text-white font-bold  rounded
- ">edit +</button
-> 
+ ">edit +</button> 
 
+<!--
 {:else if (editing == true && editing2 == true) || (editing == false && editing2 == true)   }
+-->
+
 <button
 on:click={() => { editing2 = false;}}
 class="
@@ -68,10 +71,11 @@ bg-gray-500 hover:bg-blue-700
 text-white font-bold  rounded
 ">save +</button
 >	
+<!--
 {/if}
 
 
 editing: {editing}
 editing2: {editing2}
-
+-->
 </div>

@@ -3,11 +3,15 @@
 
     //export let title;
    // export let text;
-     let title;
-     let text;
+   export let title = "";
+    export let text = "";
      export let position;
-     let cardsPromise = GetCards();
-
+     export let edit_is_visible;
+     let changing;
+     let title_change;
+     let text_change;
+let new_title;
+let new_text;
 
 
      
@@ -51,18 +55,6 @@
     }
    
     
-	async function GetCards() {
-		const res = await fetch('http://localhost:8080/cards');
-		const data = await res.json();
-
-    if (res.ok) {
-      //cards = data.reverse();
-      //position = cards.length;
-      return data;
-    } else {
-      throw new Error(data);
-    }
-	}
     </script>
 
 <div class=" 
@@ -73,38 +65,73 @@ relative
 xl:w-80/100 lg:w-90/100  
 md:w-90/100 w-95/100  
 
-mx-auto   my-10 p-6 
+mx-auto   my-10 p-4 
+pb-12
  overflow-hidden 
  overflow-ellipsis 
   break-words
   border-2 border-gray-300  bg-gray-100 
   rounded-lg shadow-lg
   ">
-  position: {position}
-  <input class="p-2 rounded w-full text-2xl" type="text" 
-  placeholder="Enter your title here" bind:value={title} />
+  title change {title_change}<br>
+  title change {text_change}<br>
 
+  {#if edit_is_visible==true }
+  window 1
+  <input class="my-2  rounded w-full text-2xl p-1" type="text" 
+  placeholder="Enter your title here" bind:value={title} />
+  <br>
+  <textarea rows="5" class="my-2 rounded w-full text-lg p-1"  
+  placeholder="Enter your text here"  bind:value={text} />
+<br>
+  
+	<button
+  on:click={() => {createEmployee(new CardEntry(title, text, 123)); /* cardsPromise = GetCards();**/ title = text = ""; edit_is_visible = false;}}
+  class="
+  shadow-md hover:shadow-lg 
+   text-lg p-2
+   
+   bg-blue-500 hover:bg-blue-700 
+   text-white font-bold  rounded
+   ">Eintrag speichern </button>
+
+   {:else if changing ==true}
+window 2
+   <input class="my-2  rounded w-full text-2xl p-1" type="text" 
+   placeholder="Enter your title here" value={title_change} />
+   <br>
+   <textarea rows="5" class="my-2 rounded w-full text-lg p-1"  
+   placeholder="Enter your text here"  value={text_change} />
+ <br>
+
+   <button on:click={() => {changing=false; }} 
+    class="
+shadow-md hover:shadow-lg 
+ text-lg p-1
+ absolute  bottom-2 right-2
+  bg-red-500 hover:bg-blue-700 
+ text-white font-bold  rounded
+ ">save/close edit</button> 
+  {:else }
+  window 3
     <p class="text-2xl lg:text-3xl  text-center ">
         {title}
     </p>
-<br>
-<textarea class="p-2 rounded w-full text-lg"  
-placeholder="Enter your text here"  bind:value={text} />
-
+    <br>
     <p class="text-md lg:text-lg   text-justify	">
         {@html text}
     </p>
 
+    <button on:click={() => {changing=true; title_change = title; text_change = text;}} 
+      class="
+  shadow-md hover:shadow-lg 
+   text-lg p-1
+   absolute  bottom-2 left-2
+    bg-green-500 hover:bg-blue-700 
+   text-white font-bold  rounded
+   ">edit +</button> 
 
-	<button
-		on:click={() => {createEmployee(new CardEntry(title, text, position)); cardsPromise = GetCards(); }}
-		class="
-    shadow-md hover:shadow-lg 
-     text-lg p-2
-     
-     bg-blue-500 hover:bg-blue-700 
-     text-white font-bold  rounded
-     ">Eintrag speichern </button
-	>
+  
+    {/if}
 
 </div>
