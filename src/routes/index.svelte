@@ -193,7 +193,18 @@ mx-auto px-2
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
-	<Card headline="test headline" text="test text" />
+	
+  
+  
+  <Card headline="run typescript in the terminal"
+   text="
+   
+   1. install typescript via 'npm install -g typescript'
+   <br>2. run tsc --version to check if installation was successful
+   <br>3. run tsc FILENAME.ts to compile the ts-file to js and create FILENAME.js
+   <br>4. run node FILENAME.js to see the JS-output
+   
+   " />
 
 	<Card
 		headline="change the starting directory of your WSL / Windows-Subsystem for Linux"
