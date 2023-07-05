@@ -6,6 +6,9 @@
 	//import FunctionsSheet from  '../functions.svelte';
 	import { onMount } from 'svelte';
 
+  import { did_last_save_card_return_ok } from "../store.js";
+  import { do_cards_need_update } from '../store.js';
+
 	//import {Functions} from '../functions.js';
 	//import  '../functions.js';
 	//let test = new Functions();
@@ -25,16 +28,27 @@
 	let position;
 	let edit_is_visible;
 
+  
+  $: did_last_save_card_return_ok_local && handleUpdateCards();
+
 	let cards = [];
-	$: !edit_is_visible && GetCards();
+	//$: !edit_is_visible && GetCards();
 	//let cardsPromise = GetCards();
 	const cardentryx = new CardEntry('xxxxxx   ', 'text test 11', 11);
 
+  function handleUpdateCards(){
+    console.log("---> doing handleUpdateCards()");
+    if (did_last_save_card_return_ok_local)
+    {
+    GetCards();
+    changeDidLastSaveCardReturnOkToFalse();
+    }
+  }
 	
 
 	async function createEmployee(employee) {
 		try {
-			console.log('createEmployee is running try');
+			console.log('---> doing createEmployeey');
 			console.log(JSON.stringify(employee));
 			const response = await fetch('http://localhost:8080/cards', {
 				method: 'POST',
@@ -59,21 +73,48 @@
 	}
 
 	async function GetCards() {
+    console.log("GetCards() doing");
 		const res = await fetch('http://localhost:8080/cards');
 		const data = await res.json();
 
 		if (res.ok) {
 			cards = data.reverse();
 			position = cards.length;
-
 			return data;
 		} else {
 			throw new Error(data);
 		}
 	}
 
+
+
+ 
+    
+let do_cards_need_update_local;
+    do_cards_need_update.subscribe((value) => {
+      do_cards_need_update_local = value;
+	});
+
+function changeDoCardsNeedUpdateToFalse(){
+  do_cards_need_update.update((n) => false);
+}
+
+
+
+let did_last_save_card_return_ok_local;
+    did_last_save_card_return_ok.subscribe((value) => {
+      did_last_save_card_return_ok_local = value;
+	});
+
+function changeDidLastSaveCardReturnOkToFalse(){
+  did_last_save_card_return_ok.update((n) => false);
+}
+
+
+
 	onMount(async () => {
 		edit_is_visible = false;
+    GetCards();
 	});
 </script>
 
@@ -87,6 +128,35 @@
 	>
 		Peters' Blog - last test fgit2
 	</h1>
+  
+  <button
+  on:click={() => {
+    changeDoCardsNeedUpdateToFalse();
+    }}
+
+  class="
+  shadow-md p-2
+   bg-blue-500 hover:bg-blue-700 
+   text-white font-bold  rounded
+   ">changeDoCardsNeedUpdateToFalse </button>
+   <br><br>
+<h1> do_cards_need_update_local = {do_cards_need_update_local}</h1>
+   <br><br>
+
+    
+  <button
+  on:click={() => {
+    changeDidLastSaveCardReturnOkToFalse();
+    }}
+
+  class="
+  shadow-md p-2
+   bg-blue-500 hover:bg-blue-700 
+   text-white font-bold  rounded
+   ">changeDidLastSaveCardReturnOkToFalse</button>
+   <br><br>
+<h1> did_last_save_card_return_ok_local = {did_last_save_card_return_ok_local}</h1>
+   <br><br>
 
 	<div
 		class="
@@ -100,11 +170,11 @@ mx-auto px-2
             "
 	>
 		<img
-			class=" 
+			class=" h-20 mx-auto
         rounded-md 
     border-2
     border-gray-300
-    shadow-lg
+    shadow-lg h-70
         "
 			src="ta_prohm_kleiner.jpg"
 			alt="ta_prohm_kleiner"
@@ -114,9 +184,8 @@ mx-auto px-2
 		<br />
 		<p>This site is under construction permanently.</p>
 	</div>
-
 	{#if edit_is_visible == true}
-		<CardEdit bind:edit_is_visible {position} />
+		<CardEdit bind:edit_is_visible />
 	{/if}
 
 	<button
