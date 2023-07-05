@@ -1,3 +1,5 @@
+
+
 <script lang="ts">
 	import Image from './image.svelte';
 	import Card from './card.svelte';
@@ -126,37 +128,9 @@ function changeDidLastSaveCardReturnOkToFalse(){
             rounded-md text-black  border-white
  "
 	>
-		Peters' Blog - last test fgit2
+		Peters' Blog - 05.07.2023
 	</h1>
   
-  <button
-  on:click={() => {
-    changeDoCardsNeedUpdateToFalse();
-    }}
-
-  class="
-  shadow-md p-2
-   bg-blue-500 hover:bg-blue-700 
-   text-white font-bold  rounded
-   ">changeDoCardsNeedUpdateToFalse </button>
-   <br><br>
-<h1> do_cards_need_update_local = {do_cards_need_update_local}</h1>
-   <br><br>
-
-    
-  <button
-  on:click={() => {
-    changeDidLastSaveCardReturnOkToFalse();
-    }}
-
-  class="
-  shadow-md p-2
-   bg-blue-500 hover:bg-blue-700 
-   text-white font-bold  rounded
-   ">changeDidLastSaveCardReturnOkToFalse</button>
-   <br><br>
-<h1> did_last_save_card_return_ok_local = {did_last_save_card_return_ok_local}</h1>
-   <br><br>
 
 	<div
 		class="
