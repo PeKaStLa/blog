@@ -72,6 +72,7 @@
 			if (response.ok) {
 				console.log('editCard is running in response.ok');
 				const editedCard = await response.json();
+        changeDidLastSaveCardReturnOkToTrue();
 				return editedCard;
 			} else {
 				console.log('editCard is running in response-not-ok');
