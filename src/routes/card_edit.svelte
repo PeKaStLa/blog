@@ -15,7 +15,7 @@
 	let new_title;
 	let new_text;
 	let ref;
-  let last_key = "default";
+	let last_key = 'default';
 
 	class CardEntry {
 		title;
@@ -72,7 +72,7 @@
 			if (response.ok) {
 				console.log('editCard is running in response.ok');
 				const editedCard = await response.json();
-        changeDidLastSaveCardReturnOkToTrue();
+				changeDidLastSaveCardReturnOkToTrue();
 				return editedCard;
 			} else {
 				console.log('editCard is running in response-not-ok');
@@ -144,15 +144,12 @@ pb-12
 		<br />
 		<textarea
 			on:keydown={(e) => {
-        console.log("e.key=", e.key);
-        console.log("Lastkey=", last_key);
-
-
-				if ((e.key == 'Enter') && ! (last_key == 'Shift')  ) {
+				console.log('e.key=', e.key);
+				console.log('Lastkey=', last_key);
+				if (e.key == 'Enter' && !(last_key == 'Shift')) {
 					createCard(new CardEntry(title, text, 123));
 				}
-        last_key = e.key;
-
+				last_key = e.key;
 			}}
 			rows="5"
 			class="my-2 rounded w-full text-lg p-1"
@@ -178,6 +175,12 @@ pb-12
 	{:else if changing == true}
 		window 2 edit/change exisiting card
 		<input
+			on:keydown={(e) => {
+				if (e.key == 'Enter') {
+					editCard(new CardEntry(title_change, text_change, 123));
+          changing = false;
+				}
+			}}
 			class="my-2  rounded w-full text-2xl p-1"
 			type="text"
 			placeholder="Enter your title here"
@@ -186,6 +189,15 @@ pb-12
 		/>
 		<br />
 		<textarea
+			on:keydown={(e) => {
+				console.log('e.key=', e.key);
+				console.log('Lastkey=', last_key);
+				if (e.key == 'Enter' && !(last_key == 'Shift')) {
+					editCard(new CardEntry(title_change, text_change, 123)); 
+          changing = false;
+				}
+				last_key = e.key;
+			}}
 			rows="5"
 			class="my-2 rounded w-full text-lg p-1"
 			placeholder="Enter your text here"
