@@ -7,7 +7,6 @@
 	export let title = '';
 	export let text = '';
 	export let id = false;
-	export let position = 12345;
 	export let edit_is_visible;
 	let changing;
 	let title_change;

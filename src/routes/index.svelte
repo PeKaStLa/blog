@@ -27,7 +27,6 @@
 		}
 	}
 
-	let position;
 	let edit_is_visible;
 
   
@@ -81,7 +80,6 @@
 
 		if (res.ok) {
 			cards = data.reverse();
-			position = cards.length;
 			return data;
 		} else {
 			throw new Error(data);
@@ -182,7 +180,7 @@ mx-auto px-2
   -->
 	edit_is_visible: {edit_is_visible}
 	{#each cards as item}
-		<CardEdit edit_is_visible="false;" title={item.title} position={item.position} text={item.text} id={item.id}/>
+		<CardEdit edit_is_visible="false;" title={item.title} text={item.text} id={item.id}/>
 	{/each}
 	<!-- {:catch error}
     <p style="color: red">{error.message}</p> 
@@ -495,7 +493,7 @@ route53_zone_nameservers = tolist([<br>
 	/>
 
 	<Card
-		headline="special variables in linux"
+		headline="special variables and locations in linux"
 		text="
   
   <table class=' rounded-md border-collapse border-separate border-spacing-4 border border-slate-600  table-auto '>
@@ -515,8 +513,8 @@ route53_zone_nameservers = tolist([<br>
         <td class='border border-slate-600 p-2' >$?</td>
       </tr>
       <tr >
-        <td class='border border-slate-600 p-2' ></td>
-        <td class='border border-slate-600 p-2' ></td>
+        <td class='border border-slate-600 p-2' >holds information about the OS. get the os-name with 'grep ^NAME  /etc/*release'</td>
+        <td class='border border-slate-600 p-2' >/etc/os-release</td>
       </tr>
       <tr >
         <td class='border border-slate-600 p-2' ></td>
