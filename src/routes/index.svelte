@@ -191,7 +191,19 @@ mx-auto px-2
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
-	
+
+  
+
+  <Card headline="Starting mongoDB" text="
+  If you don't install mongoDB as a Windows-Service, you have 
+  to start it manually in an administrator-terminal. First create a 
+  data-directory for your DB-data like this:
+  &quot;'md C:\data\db'&quot;. Then run the mongod.exe in 
+  directory &quot;C:\Program Files\MongoDB\Server\6.0\bin&quot;
+with the argument '--dbpath': 
+'.\mongod.exe --dbpath=&quot;c:\data\db&quot;'
+  " />
+
   
   
   <Card headline="run typescript in the terminal"
