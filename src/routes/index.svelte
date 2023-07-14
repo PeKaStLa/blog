@@ -189,6 +189,30 @@ mx-auto px-2
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+	<Card headline="test headline" text="test text" />
+
+
+
+	<Card headline="Add directory to $PATH" text="
+  
+  Use the command 
+  
+<p class='code'>
+  export PATH='/path/to/new/directory:$PATH'
+</p>
+This command inserts the new directory to the path
+infront of the current content of $PATH.
+  
+  " />
+
+
 	<Card headline="Docker compose vs Kubernetes" 
   text="
   
