@@ -278,11 +278,11 @@ uvicorn>=0.15.0,<0.16.0
 5. Run the docker container
 
 <p class='code'>
-  docker run -d --name CN -P outside-port:inside-port IMAGE-NAME
+  docker run -d --name CN -P host-port:container-port IMAGE-NAME
 </p>
 CN = container name
-<br>outside-port = port outside of docker container
-<br>inside-port = port inside of docker container
+<br>host-port = host adress and port
+<br>container-port = container port
 <br>
 <br>
 full example:
