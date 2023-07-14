@@ -269,19 +269,22 @@ uvicorn>=0.15.0,<0.16.0
 5. Run the docker container
 
 <p class='code'>
-  full example:
-  <br>docker run -d --name test-container -p 3013:80 test-image
-  <br><br>
   docker run -d --name CN -P outside-port:inside-port IMAGE-NAME
-  <br>
-  <br>CN = container name
-  <br>outside-port = port outside of docker container
-  <br>inside-port = port inside of docker container
-  <br>
-  <br>The FastAPI-app inside of the docker container runs on the 
+</p>
+CN = container name
+<br>outside-port = port outside of docker container
+<br>inside-port = port inside of docker container
+<br>
+<br>
+full example:
+
+<p class='code'>
+docker run -d --name test-container -p 3013:80 test-image
+</p>
+The FastAPI-app inside of the docker container runs on the 
   inside-port 80. From outside from the host you can access the 
   API in the docker container on port 3013.
-</p>
+  <br><br>
 6. More information and docker commands
 <br><br>
 We are using the requirements.txt-file to use docker's internal caching.
@@ -661,12 +664,12 @@ route53_zone_nameservers = tolist([<br>
         <td class='border border-slate-600 p-2' >/etc/os-release</td>
       </tr>
       <tr >
-        <td class='border border-slate-600 p-2' >HTML code for tab</td>
-        <td class='border border-slate-600 p-2' >&emsp;</td>
+        <td class='border border-slate-600 p-2' >HTML code for tab(without the space)</td>
+        <td class='border border-slate-600 p-2' >& emsp;</td>
       </tr>
       <tr >
-        <td class='border border-slate-600 p-2' >HTML code for double quotes</td>
-        <td class='border border-slate-600 p-2' >&quot;</td>
+        <td class='border border-slate-600 p-2' >HTML code for double quotes(without the space)</td>
+        <td class='border border-slate-600 p-2' >& quot;</td>
       </tr>
     </tbody>
   </table>
