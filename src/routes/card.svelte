@@ -35,11 +35,11 @@ mx-auto   my-10 p-6
   rounded-lg shadow-lg
   ">
 
-    <p class="text-2xl lg:text-3xl  text-center ">
+    <p class="text-3xl  text-center ">
         {headline}
     </p>
 <br>
-    <p class="text-md lg:text-lg   text-justify	">
+    <p class="text-lg   text-justify	">
         {@html text}
     </p>
 

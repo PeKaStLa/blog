@@ -190,7 +190,122 @@ mx-auto px-2
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
-	<Card headline="test headline" text="test text" />
+
+
+
+	<Card headline="Deploying a Docker container with FastAPI" 
+  
+  text="
+1. Create FastAPI-Project
+<br>
+2. Write the package requirements in requirements.txt
+<br>
+3. Add the Dockerfile
+<br>
+4. build the docker image
+<br>
+5. run the docker container
+6. More information and docker commands
+<br><br>
+1. Create FastAPI-Project:
+<br>We will create a really simple API that returns a Hello world
+and the IP-adress on the GET / endpoint. 
+<p class='code'>
+  from fastapi import FastAPI
+  <br>import socket
+  <br>
+  <br>app = FastAPI()
+  <br>
+  <br>@app.get('/')
+  <br>def read_root():
+  <br>&emsp;&emsp;soc = socket.gethostbyname(socket.gethostname())
+  <br>&emsp;&emsp;return &lbrace;'Hello World': soc &rbrace;
+</p>
+2. Write the package requirements in requirements.txt by 
+inserting the following content:
+<p class='code'>
+fastapi>=0.68.0,<0.69.0
+<br>
+pydantic>=1.8.0,<2.0.0
+<br>
+uvicorn>=0.15.0,<0.16.0
+</p>
+3. Add the Dockerfile
+
+<p class='code'>
+  FROM python:3.9
+
+  <br>
+  <br>
+  WORKDIR /code
+  
+  <br>
+  <br>
+  COPY ./requirements.txt /code/requirements.txt
+  
+  <br>
+  <br>
+  RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+  
+  <br>
+  <br>
+  COPY ./main.py /code/
+  
+  <br>
+  <br>
+  CMD ['uvicorn', 'main:app', '--host', '0.0.0.0', '--port', '80']
+</p>
+
+
+4. build the docker image
+
+<p class='code'>
+ docker build -t IMAGE-NAME .
+</p>
+5. run the docker container
+
+<p class='code'>
+  full example:
+  <br>docker run -d --name test-container -p 3013:80 test-image
+  <br><br>
+  docker run -d --name CN -P outside-port:inside-port IMAGE-NAME
+  <br>
+  <br>CN = container name
+  <br>outside-port = port outside of docker container
+  <br>inside-port = port inside of docker container
+  <br>
+  <br>The FastAPI-app inside of the docker container runs on the 
+  inside-port 80. From outside from the host you can access the 
+  API in the docker container on port 3013.
+</p>
+6. More information and docker commands
+<br><br>
+<table class=' border-collapse border-separate border-spacing-4 
+border border-slate-600  table-auto rounded-md '>
+  <thead>
+    <tr>
+      <th class='border border-slate-600 p-2'>task</th>
+      <th class='border border-slate-600 p-2'>command</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr >
+      <td class='border border-slate-600 p-2' >Get all of your own docker images</td>
+      <td class='border border-slate-600 p-2' >docker images</td>
+    </tr>
+      <tr >
+      <td class='border border-slate-600 p-2' >get all running docker container</td>
+      <td class='border border-slate-600 p-2' >docker container ls</td>
+    </tr>
+      <tr >
+      <td class='border border-slate-600 p-2' >remove docker container named XXXXX</td>
+      <td class='border border-slate-600 p-2' >docker container rm XXXXX</td>
+    </tr>
+  </tbody>
+</table>
+  
+  
+  " />
 
   
 
@@ -350,7 +465,7 @@ route53_zone_nameservers = tolist([<br>
 	/>
 
 	<Card
-		headline="Get all manually installed packages"
+		headline="Get all manually installed packages on AWS EC2"
 		text="
   
   With 'dnf --installed list' you get a list of all installed packages.
