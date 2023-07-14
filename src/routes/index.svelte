@@ -189,7 +189,16 @@ mx-auto px-2
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
 	<Card headline="test headline" text="test text" />
-	<Card headline="test headline" text="test text" />
+	<Card headline="Docker compose vs Kubernetes" 
+  text="
+  
+  Docker Compose deploys multi-container Docker apps to a single server, 
+  while Kubernetes is a production-grade container orchestrator that can 
+  run multiple container runtimes, including Docker's, across multiple 
+  virtual or physical machines.
+  <br><br>
+  <a href='https://k21academy.com/docker-kubernetes/docker-compose-vs-kubernetes/'> see k21academy.com</a>
+  " />
 
 
 
