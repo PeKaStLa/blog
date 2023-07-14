@@ -632,7 +632,7 @@ route53_zone_nameservers = tolist([<br>
   <br><br>
   1. Add the repository to the package-manager locally and then install it with the package-manager.
   <br>
-  2. Download the file from the software-repo directly and evtl. extract it. Then run the installation-file.
+  2. Download the installation-file from the software-repo directly (and extract it). Then run the installation-file.
   <br><br>"
 	/>
 
@@ -661,12 +661,12 @@ route53_zone_nameservers = tolist([<br>
         <td class='border border-slate-600 p-2' >/etc/os-release</td>
       </tr>
       <tr >
-        <td class='border border-slate-600 p-2' ></td>
-        <td class='border border-slate-600 p-2' ></td>
+        <td class='border border-slate-600 p-2' >HTML code for tab</td>
+        <td class='border border-slate-600 p-2' >&emsp;</td>
       </tr>
       <tr >
-        <td class='border border-slate-600 p-2' ></td>
-        <td class='border border-slate-600 p-2' ></td>
+        <td class='border border-slate-600 p-2' >HTML code for double quotes</td>
+        <td class='border border-slate-600 p-2' >&quot;</td>
       </tr>
     </tbody>
   </table>
