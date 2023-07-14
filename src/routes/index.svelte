@@ -278,8 +278,14 @@ uvicorn>=0.15.0,<0.16.0
 5. Run the docker container
 
 <p class='code'>
-  docker run -d --name container-name -P host-port:container-port IMAGE-NAME
+  docker run -d --name CONTAINER-NAME -p HOST-PORT:CONTAINER-PORT IMAGE-NAME
 </p>
+The -d flag (short for --detach) runs the container in the background. 
+The -p flag (short for --publish) creates a port mapping between the host 
+and the container. The -p flag take a string value in the format of 
+HOST:CONTAINER, where HOST is the address on the host, and CONTAINER is 
+the port on the container. 
+
 <br>
 <br>
 full example:
@@ -315,17 +321,31 @@ border border-slate-600  table-auto rounded-md '>
       <td class='border border-slate-600 p-2' >start the docker daemon in the foreground</td>
       <td class='border border-slate-600 p-2' >dockerd</td>
     </tr>
+      <tr >
+      <td class='border border-slate-600 p-2' >build a docker image named XXX from the current directory</td>
+      <td class='border border-slate-600 p-2' >docker build -t XXX .</td>
+    </tr>
+    
     <tr >
       <td class='border border-slate-600 p-2' >list all your own docker images</td>
       <td class='border border-slate-600 p-2' >docker images</td>
     </tr>
-      <tr >
-      <td class='border border-slate-600 p-2' >list all running docker container</td>
-      <td class='border border-slate-600 p-2' >docker container ls</td>
+       <tr >
+      <td class='border border-slate-600 p-2' >run an app using the image named YYY on port 80 of docker container named XXX and host port 3013</td>
+      <td class='border border-slate-600 p-2' >docker run -d --name XXX -p 3013:80 YYY</td>
     </tr>
       <tr >
-      <td class='border border-slate-600 p-2' >remove docker container named XXXXX</td>
-      <td class='border border-slate-600 p-2' >docker container rm XXXXX</td>
+      <td class='border border-slate-600 p-2' >list all running docker container</td>
+      <td class='border border-slate-600 p-2' >docker ps<b> or </b>docker container ls</td>
+    </tr>
+    
+      <tr >
+      <td class='border border-slate-600 p-2' >stop a specific running docker container using the ID XXX</td>
+      <td class='border border-slate-600 p-2' >docker stop XXX</td>
+    </tr>
+      <tr >
+      <td class='border border-slate-600 p-2' >remove docker container using the ID XXX</td>
+      <td class='border border-slate-600 p-2' >docker container rm XXX<b> or </b>docker rm XXX</td>
     </tr>
   </tbody>
 </table>
@@ -347,7 +367,7 @@ with the argument '--dbpath':
 
   
   
-  <Card headline="run typescript in the terminal"
+  <Card headline="Run typescript in the terminal"
    text="
    
    1. install typescript via 'npm install -g typescript'
@@ -358,7 +378,7 @@ with the argument '--dbpath':
    " />
 
 	<Card
-		headline="change the starting directory of your WSL / Windows-Subsystem for Linux"
+		headline="Change the starting directory of your WSL / Windows-Subsystem for Linux"
 		text="
   
   Open the WSL bash with admin rights.
@@ -448,9 +468,7 @@ with the argument '--dbpath':
   
   If your AWS-instance has a RSA-key assigned, 
   you can also connect to Ansible with this RSA-key using '--key-file':
-  <br><br>
-  &emsp; ansible all -m ping --key-file '~/.ssh/key_name.pem'
-  <br><br>
+    <p class='code'>ansible all -m ping --key-file '~/.ssh/key_name.pem'</p>
   Without the '--key-file' using 
   'ansible all -m ping -u ubuntu -i '~/.ssh/terraform_3.pem' 
   you would get this error:
@@ -482,11 +500,9 @@ route53_zone_nameservers = tolist([<br>
 
 <br><br>
 
-  You can extract only the IP-adress with following command:<br><br>
-  &emsp; terraform output | grep instance_public_ip |  
-  sed -r &quot; s/.*?([\&quot;'])(.*)\ 1.*/\ 2/&quot;
-  
-  
+  You can extract only the IP-adress with following command:  
+  <p class='code'>terraform output | grep instance_public_ip |  
+  sed -r &quot; s/.*?([\&quot;'])(.*)\ 1.*/\ 2/&quot;</p>
   "
 	/>
 
@@ -497,8 +513,8 @@ route53_zone_nameservers = tolist([<br>
   With 'dnf --installed list' you get a list of all installed packages.
   But you also get pre-installed packages which you can 
   identify by the @System in the 3rd column.
-  To filter for manually installed packages only you can use: <br><br>
-  &emsp;dnf --installed list | grep @amazonlinux
+  To filter for manually installed packages only you can use: 
+  <p class='code'>dnf --installed list | grep @amazonlinux</p>
   
   
    "
@@ -533,7 +549,7 @@ route53_zone_nameservers = tolist([<br>
       </tr>
         <tr >
         <td class='border border-slate-600 p-2' >show content of 'terraform.tfstate' of the currently applied config</td>
-        <td class='border border-slate-600 p-2' >terraform show  <b> or </b>less terraform.tfstate</td>
+        <td class='border border-slate-600 p-2' >terraform show<b> or </b>less terraform.tfstate</td>
       </tr>
   
       <tr>
