@@ -196,22 +196,31 @@ mx-auto px-2
 	<Card headline="Deploying a Docker container with FastAPI" 
   
   text="
-1. Create FastAPI-Project
-<br>
-2. Write the package requirements in requirements.txt
+  1. Create the FastAPI-project in main.py:
+  <br>
+2. Insert the package requirements in requirements.txt
 <br>
 3. Add the Dockerfile
 <br>
-4. build the docker image
+4. Build the docker image
 <br>
-5. run the docker container
+5. Run the docker container
+<br>
 6. More information and docker commands
 <br><br>
-1. Create FastAPI-Project:
+The project-tree will look like following:
+<br>
+.<br>
+├───Dockerfile<br>
+├───main.py<br>
+└───requirements.txt
+<br><br>
+1. Create the FastAPI-project in main.py:
 <br>We will create a really simple API that returns a Hello world
 and the IP-adress on the GET / endpoint. 
 <p class='code'>
-  from fastapi import FastAPI
+  #main.py
+  <br>from fastapi import FastAPI
   <br>import socket
   <br>
   <br>app = FastAPI()
@@ -221,7 +230,7 @@ and the IP-adress on the GET / endpoint.
   <br>&emsp;&emsp;soc = socket.gethostbyname(socket.gethostname())
   <br>&emsp;&emsp;return &lbrace;'Hello World': soc &rbrace;
 </p>
-2. Write the package requirements in requirements.txt by 
+2. Insert the package requirements in requirements.txt by 
 inserting the following content:
 <p class='code'>
 fastapi>=0.68.0,<0.69.0
@@ -234,35 +243,30 @@ uvicorn>=0.15.0,<0.16.0
 
 <p class='code'>
   FROM python:3.9
-
   <br>
   <br>
   WORKDIR /code
-  
   <br>
   <br>
   COPY ./requirements.txt /code/requirements.txt
-  
   <br>
   <br>
   RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
-  
   <br>
   <br>
   COPY ./main.py /code/
-  
   <br>
   <br>
   CMD ['uvicorn', 'main:app', '--host', '0.0.0.0', '--port', '80']
 </p>
 
 
-4. build the docker image
+4. Build the docker image
 
 <p class='code'>
  docker build -t IMAGE-NAME .
 </p>
-5. run the docker container
+5. Run the docker container
 
 <p class='code'>
   full example:
@@ -280,6 +284,11 @@ uvicorn>=0.15.0,<0.16.0
 </p>
 6. More information and docker commands
 <br><br>
+We are using the requirements.txt-file to use docker's internal caching.
+This way docker can build your images faster when you rebuild your 
+edited projects (<a href='https://fastapi.tiangolo.com/deployment/docker/#docker-cache'>see this link to fastapi docs</a>).
+<br>
+<br>
 <table class=' border-collapse border-separate border-spacing-4 
 border border-slate-600  table-auto rounded-md '>
   <thead>
@@ -290,7 +299,15 @@ border border-slate-600  table-auto rounded-md '>
   </thead>
   <tbody>
     <tr >
-      <td class='border border-slate-600 p-2' >Get all of your own docker images</td>
+      <td class='border border-slate-600 p-2' >start the docker saemon in the background</td>
+      <td class='border border-slate-600 p-2' >sudo systemctl start docker</td>
+    </tr>
+    <tr >
+      <td class='border border-slate-600 p-2' >start the docker saemon in the foreground</td>
+      <td class='border border-slate-600 p-2' >dockerd</td>
+    </tr>
+    <tr >
+      <td class='border border-slate-600 p-2' >get all your own docker images</td>
       <td class='border border-slate-600 p-2' >docker images</td>
     </tr>
       <tr >
