@@ -331,6 +331,15 @@ border border-slate-600  table-auto rounded-md '>
       <td class='border border-slate-600 p-2' >docker images</td>
     </tr>
        <tr >
+      <td class='border border-slate-600 p-2' >show used commands for creating layers of docker image named XXX</td>
+      <td class='border border-slate-600 p-2' >docker image history XXX</td>
+    </tr>
+      <tr >
+      <td class='border border-slate-600 p-2' >remove docker image named XXX or with ID XXX</td>
+      <td class='border border-slate-600 p-2' >docker image rm XXX</td>
+    </tr> 
+  
+       <tr >
       <td class='border border-slate-600 p-2' >run an app using the image named YYY on port 80 of docker container named XXX and host port 3013</td>
       <td class='border border-slate-600 p-2' >docker run -d --name XXX -p 3013:80 YYY</td>
     </tr>
