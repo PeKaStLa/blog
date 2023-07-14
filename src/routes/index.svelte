@@ -302,19 +302,19 @@ border border-slate-600  table-auto rounded-md '>
   </thead>
   <tbody>
     <tr >
-      <td class='border border-slate-600 p-2' >start the docker saemon in the background</td>
+      <td class='border border-slate-600 p-2' >start the docker daemon in the background</td>
       <td class='border border-slate-600 p-2' >sudo systemctl start docker</td>
     </tr>
     <tr >
-      <td class='border border-slate-600 p-2' >start the docker saemon in the foreground</td>
+      <td class='border border-slate-600 p-2' >start the docker daemon in the foreground</td>
       <td class='border border-slate-600 p-2' >dockerd</td>
     </tr>
     <tr >
-      <td class='border border-slate-600 p-2' >get all your own docker images</td>
+      <td class='border border-slate-600 p-2' >list all your own docker images</td>
       <td class='border border-slate-600 p-2' >docker images</td>
     </tr>
       <tr >
-      <td class='border border-slate-600 p-2' >get all running docker container</td>
+      <td class='border border-slate-600 p-2' >list all running docker container</td>
       <td class='border border-slate-600 p-2' >docker container ls</td>
     </tr>
       <tr >
